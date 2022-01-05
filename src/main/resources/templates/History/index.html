@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>증액이력조회</title>
+    <link href="../static/css/index.css" th:href="@{/css/index.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>운영관리시스템</h1>
+<hr>
+<div class="container">
+    <table width="100%" border="1">
+        <thead>
+        <tr>
+            <th>uid</th>
+            <th>grp_cd</th>
+            <th>status</th>
+            <th>start_date</th>
+            <th>limit_price</th>
+            <th>sms_price</th>
+            <th>lms_price</th>
+            <th>mms_price</th>
+            <th>rmk</th>
+            <th>create_dttm</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="increaseH : ${increaseH}">
+            <td th:text="$!{increaseH.uid}"></td>
+            <td th:text="${increaseH.grp_cd}"></td>
+            <td th:text="${increaseH.start_date}"></td>
+            <td th:text="${increaseH.limit_price}"></td>
+            <td th:text="${increaseH.sms_price}"></td>
+            <td th:text="${increaseH.lms_price}"></td>
+            <td th:text="${increaseH.mms_price}"></td>
+            <td th:text="${increaseH.rmk}"></td>
+            <td th:text="${increaseH.create_dttm}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+</html>
