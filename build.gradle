@@ -47,11 +47,9 @@ dependencies {
 }
 
 test {
-	outputs.dir snippetsDir
 	useJUnitPlatform()
 }
 
 asciidoctor {
-	inputs.dir snippetsDir
 	dependsOn test
 }

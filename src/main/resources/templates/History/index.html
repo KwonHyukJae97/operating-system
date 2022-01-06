@@ -27,7 +27,7 @@
         </thead>
         <tbody>
         <tr th:each="increaseH : ${increaseH}">
-            <td th:text="$!{increaseH.uid}"></td>
+            <td th:text="${increaseH.uid}"></td>
             <td th:text="${increaseH.grp_cd}"></td>
             <td th:text="${increaseH.start_date}"></td>
             <td th:text="${increaseH.limit_price}"></td>
