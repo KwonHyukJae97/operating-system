@@ -1,6 +1,7 @@
 package com.operation.management.domain;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,11 +35,11 @@ public class IncreaseH {
   private float lms_price;
   private float mms_price;
   private String rmk;
-  private LocalDate create_dttm;
+  private Date create_dttm;
 
   @Builder
     public IncreaseH(Long uid, String grp_cd, String status, String start_date, String limit_price,
-    float sms_price, float lms_price, float mms_price, String rmk, LocalDate create_dttm){
+    float sms_price, float lms_price, float mms_price, String rmk, Date create_dttm){
         this.uid = uid;
         this.grp_cd = grp_cd;
         this.status = status;

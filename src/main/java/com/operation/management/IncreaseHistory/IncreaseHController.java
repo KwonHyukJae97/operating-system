@@ -3,6 +3,7 @@ package com.operation.management.IncreaseHistory;
 
 import java.util.List;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.domain.IncreaseHRepository;
 import com.operation.management.dto.IncreaseHDto;
@@ -23,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import net.minidev.json.JSONObject;
+import oracle.net.aso.j;
+
 @RestController
 @RequestMapping("/increaseH")
 public class IncreaseHController {
@@ -30,8 +34,7 @@ public class IncreaseHController {
     @Autowired
     private IncreaseHService increaseHService;
 
-    @Autowired
-    private IncreaseHRepository increaseHRepository;
+    
 
 
 
@@ -44,24 +47,31 @@ public class IncreaseHController {
 
     @RequestMapping("/IncreaseListVw")
     public String list(Model model){
-        List<IncreaseH> increaseList = increaseHService.getUsers();
-        model.addAttribute("hList", increaseList);
-        return "list.html";
+        
+        return "/list.html";
     }
 
 
     @GetMapping("/IncreaseHListDo")
-    public ResponseEntity<?> list(final IncreaseHListDto model){
+    public String list(final IncreaseHListDto model) throws Exception{
 
-        ResponseEntity<?> entity = null;
+        List<IncreaseH> allUsers = increaseHService.getALLUsers();
 
-        try{
-            entity = new ResponseEntity<IncreaseHListDto>(increaseHService.list(model),HttpStatus.OK);
-        }catch(Exception e){
-            entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return entity;
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("IncreseHList", allUsers);
+        
+        ObjectMapper mapper = new ObjectMapper();
+
+        
+
+        // return entity;
+        return mapper.writeValueAsString(jsonObject);
     }
+
+    public IncreaseHController() {
+    }
+
 
     @GetMapping("/{uid}")
     public ResponseEntity<?> view(@PathVariable("uid") final long uid){

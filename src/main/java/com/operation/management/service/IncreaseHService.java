@@ -20,15 +20,15 @@ public class IncreaseHService {
     @Autowired
     private IncreaseHRepository increaseHRepository;
 
-    public IncreaseHListDto list(IncreaseHListDto model) throws Exception{
-        Page<IncreaseH> page = increaseHRepository.findAll(model.toSpecification(), model.toPage());
+    // public IncreaseHListDto list(IncreaseHListDto model) throws Exception{
+    //     Page<IncreaseH> page = increaseHRepository.findAll(model.toSpecification(), model.toPage());
         
         
-        model.setList(page.toList());
-        model.setTotalCount(page.getTotalElements());
-        System.out.println("=============model ===========:" + list(model));
-        return model;
-    }
+    //     model.setList(page.toList());
+    //     model.setTotalCount(page.getTotalElements());
+    //     System.out.println("=============model ===========:" + list(model));
+    //     return model;
+    // }
 
     public IncreaseHDto view(Long uid) throws Exception{
         Optional<IncreaseH> opt = increaseHRepository.findById(uid);
@@ -64,7 +64,7 @@ public class IncreaseHService {
     }
 
 
-    public List<IncreaseH> getUsers() {
+    public List<IncreaseH> getALLUsers() {
         return increaseHRepository.findAll();
     }
 
@@ -73,17 +73,17 @@ public class IncreaseHService {
 
         for(IncreaseH increaseHListDto : increaseList){
             IncreaseH increaseH = IncreaseH.builder()
-                 .uid(increaseHListDto.getUid())
-                 .grp_cd(increaseHListDto.getGrp_cd())
-                 .status(increaseHListDto.getStatus())
-                 .start_date(increaseHListDto.getStart_date())
-                 .limit_price(increaseHListDto.getLimit_price())
-                 .sms_price(increaseHListDto.getSms_price())
-                 .lms_price(increaseHListDto.getLms_price())
-                 .mms_price(increaseHListDto.getMms_price())
-                 .rmk(increaseHListDto.getRmk())
-                 .create_dttm(increaseHListDto.getCreate_dttm())
-                 .build();
+                .uid(increaseHListDto.getUid())
+                .grp_cd(increaseHListDto.getGrp_cd())
+                .status(increaseHListDto.getStatus())
+                .start_date(increaseHListDto.getStart_date())
+                .limit_price(increaseHListDto.getLimit_price())
+                .sms_price(increaseHListDto.getSms_price())
+                .lms_price(increaseHListDto.getLms_price())
+                .mms_price(increaseHListDto.getMms_price())
+                .rmk(increaseHListDto.getRmk())
+                .create_dttm(increaseHListDto.getCreate_dttm())
+                .build();
             increaseList.add(increaseH);
         }
         return increaseList;

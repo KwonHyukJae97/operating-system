@@ -1,6 +1,7 @@
 package com.operation.management.dto;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import com.operation.management.domain.IncreaseH;
 
@@ -20,7 +21,8 @@ public class IncreaseHDto {
     private float lms_price;
     private float mms_price;
     private String rmk;
-    private LocalDate create_dttm;
+    private Date create_dttm;
+    private String fDate;
     
     // @Builder
     // public IncreaseHDto(Long uid, String grp_cd, String status, String start_date, String limit_price,
