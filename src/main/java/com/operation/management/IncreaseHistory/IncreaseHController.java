@@ -38,12 +38,7 @@ public class IncreaseHController {
 
 
 
-    // @GetMapping("/")
-    // public String list(Model model){
-    //     List<IncreaseH> hList = increaseHRepository.findAll();
-    //     model.addAttribute("hList", hList);
-    //     return "/History/index.html";
-    // }
+
 
     @RequestMapping("/IncreaseListVw")
     public String list(Model model){
