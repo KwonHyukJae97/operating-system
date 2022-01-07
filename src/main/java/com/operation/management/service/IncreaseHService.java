@@ -1,5 +1,6 @@
 package com.operation.management.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,6 +66,27 @@ public class IncreaseHService {
 
     public List<IncreaseH> getUsers() {
         return increaseHRepository.findAll();
+    }
+
+    public List<IncreaseH> getList(){
+        List<IncreaseH> increaseList = increaseHRepository.findAll();
+
+        for(IncreaseH increaseHListDto : increaseList){
+            IncreaseH increaseH = IncreaseH.builder()
+                 .uid(increaseHListDto.getUid())
+                 .grp_cd(increaseHListDto.getGrp_cd())
+                 .status(increaseHListDto.getStatus())
+                 .start_date(increaseHListDto.getStart_date())
+                 .limit_price(increaseHListDto.getLimit_price())
+                 .sms_price(increaseHListDto.getSms_price())
+                 .lms_price(increaseHListDto.getLms_price())
+                 .mms_price(increaseHListDto.getMms_price())
+                 .rmk(increaseHListDto.getRmk())
+                 .create_dttm(increaseHListDto.getCreate_dttm())
+                 .build();
+            increaseList.add(increaseH);
+        }
+        return increaseList;
     }
 
 }
