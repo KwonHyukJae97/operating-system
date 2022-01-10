@@ -34,6 +34,7 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/org.webjars/bootstrap
 	implementation group: 'org.webjars', name: 'bootstrap', version: '4.6.0'
+	implementation group: 'org.webjars', name: 'jquery', version: '3.6.0'
 
 	// implementation 'org.springframework.boot:spring-boot-starter-web-services'
 	// implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'

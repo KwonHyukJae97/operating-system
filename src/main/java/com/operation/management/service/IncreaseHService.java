@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.naming.NameNotFoundException;
+import javax.transaction.Transactional;
 
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.domain.IncreaseHRepository;
@@ -57,7 +58,7 @@ public class IncreaseHService {
 
         return new IncreaseHDto(increaseH);
     }
-
+    @Transactional
     public void delete(long uid) throws Exception{
         this.view(uid);
             increaseHRepository.deleteById(uid);

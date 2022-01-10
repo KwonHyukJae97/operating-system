@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,16 +25,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import oracle.net.aso.j;
 
-@RestController
-@RequestMapping("/increaseH")
+@Controller
+@Slf4j
 public class IncreaseHController {
 
     @Autowired
     private IncreaseHService increaseHService;
 
+
+
+    @RequestMapping("/test/test")
+    String indexPage(Model model){
+
+        List<IncreaseH> allUsers = increaseHService.getALLUsers();
+
+    model.addAttribute("allUsers", allUsers);
+
+    log.info("allUsers {}",allUsers);
+    return "index";
+}
     
 
 
@@ -48,24 +62,26 @@ public class IncreaseHController {
 
 
     @GetMapping("/IncreaseHListDo")
-    public String list(final IncreaseHListDto model) throws Exception{
+    public JSONObject list(final IncreaseHListDto model) throws Exception{
 
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
 
         JSONObject jsonObject = new JSONObject();
 
         jsonObject.put("IncreseHList", allUsers);
+
+        System.out.println("올유저~~!!! :" + allUsers);
         
-        ObjectMapper mapper = new ObjectMapper();
+        // ObjectMapper mapper = new ObjectMapper();
 
         
 
         // return entity;
-        return mapper.writeValueAsString(jsonObject);
+        // return mapper.writeValueAsString(jsonObject);
+        return jsonObject;
     }
 
-    public IncreaseHController() {
-    }
+   
 
 
     @GetMapping("/{uid}")
@@ -97,6 +113,8 @@ public class IncreaseHController {
 
     @PutMapping("/{uid}")
     public ResponseEntity<?> update(@PathVariable("uid") final long uid, @RequestBody final IncreaseHDto model){
+        System.out.println("testing");
+        
         ResponseEntity<?> entity = null;
 
         try{
@@ -107,35 +125,12 @@ public class IncreaseHController {
         return entity;
     }
 
-    @DeleteMapping("/{uid}")
-    public ResponseEntity<?> delete(@PathVariable("uid") final long uid){
-        ResponseEntity<?> entity = null;
-
-        try{
-            increaseHService.delete(uid);
-            entity = new ResponseEntity<>(HttpStatus.OK);
-        }catch (NotFoundException e){
-            entity = new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }catch (Exception e){
-            entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return entity;
+    @PostMapping("/list/{uid}")
+    public String delete(@PathVariable("uid") Long uid) throws Exception{
+        System.out.println("Delete TEST()");
+        increaseHService.delete(uid);
+        return "redirect:/test/test";
     }
-
-
-
-    // public IncreaseHController(IncreaseHService increaseHService){
-    //     this.increaseHService = increaseHService;
-    // }
-
-    
-    // @GetMapping("/increaseH")
-    // public String increase(Model model) throws Exception{
-    //     List<IncreaseH> IncreaseH= increaseHService.getIncreaseHList();
-    //     model.addAttribute("IncreaseH", IncreaseH);
-    //     return "/History/index";
-    // }
-
 
     
 }
