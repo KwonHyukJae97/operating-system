@@ -15,6 +15,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.operation.management.IncreaseHistory.IncreaseHController.CreateMemberRequest;
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.domain.IncreaseHRepository;
 import com.operation.management.dto.IncreaseHDto;
@@ -120,6 +121,27 @@ public class IncreaseHServiceTest {
             System.out.println("aaaaaaaa=====bbbbbbbb: " + result.getGrp_cd() + result2.getGrp_cd());
             // assertNotNull(result.getCreate_dttm());
         
+    }
+    @Test 
+    void C_updateTest() throws Exception{
+
+        //given
+        CreateMemberRequest model = new CreateMemberRequest();
+        model.setStatus("arreokwon");
+        model.setLimit_price("arreokwon");
+        model.setSms_price(90);
+        model.setLms_price(80);
+        model.setMms_price(70);
+        
+        //when
+        IncreaseHDto updatedInfo = increaseHService.update(model, 323);
+
+        //then
+
+        Assertions.assertThat(updatedInfo.getStatus().equals(model.getStatus()));
+        
+
+
     }
 
    

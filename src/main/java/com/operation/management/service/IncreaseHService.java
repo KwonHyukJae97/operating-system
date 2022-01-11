@@ -7,6 +7,8 @@ import java.util.Optional;
 import javax.naming.NameNotFoundException;
 import javax.transaction.Transactional;
 
+import com.operation.management.IncreaseHistory.IncreaseHController;
+import com.operation.management.IncreaseHistory.IncreaseHController.CreateMemberRequest;
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.domain.IncreaseHRepository;
 import com.operation.management.dto.IncreaseHDto;
@@ -45,9 +47,9 @@ public class IncreaseHService {
         IncreaseH increaseH = increaseHRepository.save(model.toEntity());
         return new IncreaseHDto(increaseH);
     }
-
-    public IncreaseHDto update(IncreaseHDto model, long uid) throws Exception{
-        IncreaseHDto view = this.view(uid);
+    @Transactional
+    public IncreaseHDto update(CreateMemberRequest model, long uid) throws Exception{
+        IncreaseHDto view = this.view(uid);        
 
         view.setStatus(model.getStatus());
         view.setLimit_price(model.getLimit_price());
@@ -58,6 +60,13 @@ public class IncreaseHService {
 
         return new IncreaseHDto(increaseH);
     }
+
+    public Optional<IncreaseH> findById(Long uid) throws Exception{
+        return increaseHRepository.findById(uid);
+        
+    }
+
+
     @Transactional
     public void delete(long uid) throws Exception{
         this.view(uid);
@@ -69,25 +78,25 @@ public class IncreaseHService {
         return increaseHRepository.findAll();
     }
 
-    public List<IncreaseH> getList(){
-        List<IncreaseH> increaseList = increaseHRepository.findAll();
+    // public List<IncreaseH> getList(){
+    //     List<IncreaseH> increaseList = increaseHRepository.findAll();
 
-        for(IncreaseH increaseHListDto : increaseList){
-            IncreaseH increaseH = IncreaseH.builder()
-                .uid(increaseHListDto.getUid())
-                .grp_cd(increaseHListDto.getGrp_cd())
-                .status(increaseHListDto.getStatus())
-                .start_date(increaseHListDto.getStart_date())
-                .limit_price(increaseHListDto.getLimit_price())
-                .sms_price(increaseHListDto.getSms_price())
-                .lms_price(increaseHListDto.getLms_price())
-                .mms_price(increaseHListDto.getMms_price())
-                .rmk(increaseHListDto.getRmk())
-                .create_dttm(increaseHListDto.getCreate_dttm())
-                .build();
-            increaseList.add(increaseH);
-        }
-        return increaseList;
-    }
+    //     for(IncreaseH increaseHListDto : increaseList){
+    //         IncreaseH increaseH = IncreaseH.builder()
+    //             .uid(increaseHListDto.getUid())
+    //             .grp_cd(increaseHListDto.getGrp_cd())
+    //             .status(increaseHListDto.getStatus())
+    //             .start_date(increaseHListDto.getStart_date())
+    //             .limit_price(increaseHListDto.getLimit_price())
+    //             .sms_price(increaseHListDto.getSms_price())
+    //             .lms_price(increaseHListDto.getLms_price())
+    //             .mms_price(increaseHListDto.getMms_price())
+    //             .rmk(increaseHListDto.getRmk())
+    //             .create_dttm(increaseHListDto.getCreate_dttm())
+    //             .build();
+    //         increaseList.add(increaseH);
+    //     }
+    //     return increaseList;
+    // }
 
 }

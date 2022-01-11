@@ -27,14 +27,26 @@ public class IncreaseH {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(columnDefinition = "serial")
   private Long uid;
+  @Column(updatable = false)
   private String grp_cd;
+  
   private String status;
+  
+  @Column(updatable = false)
   private String start_date;
+  
   private String limit_price;
+  
   private float sms_price;
+  
   private float lms_price;
+  
   private float mms_price;
+  
+  @Column(updatable = false)
   private String rmk;
+  
+  @Column(updatable = false)
   private Date create_dttm;
 
   @Builder

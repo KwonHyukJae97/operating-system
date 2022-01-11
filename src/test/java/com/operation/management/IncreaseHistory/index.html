@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head th:replace="inc/head.html :: head">
+
+    </head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link disabled">Disabled</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    <h1 class="test">증액이력</h1>
+    <form id="frm"  method="post">
+    <table class="table table-striped">
+        <thead>
+ 
+            <tr>
+                <th>uid</th>
+                <th>grp_cd</th>
+                <th>status</th>
+                <th>start_date</th>
+                <th>limit_price</th>
+                <th>sms_price</th>
+                <th>lms_price</th>
+                <th>mms_price</th>
+                <th>rmk</th>
+                <th>create_dttm</th>
+                <th></th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr th:each="user : ${allUsers}">
+                    <td><span th:value="${user.uid}" th:text="${user.uid}"></span></td>
+                    <td><span th:text="${user.grp_cd}"></span></td>
+                    <td><span th:text="${user.status}"></span></td>
+                    <td><span th:text="${user.start_date}"></span></td>
+                    <td><span th:text="${user.limit_price}"></span></td>
+                    <td><span th:text="${user.sms_price}"></span></td>
+                    <td><span th:text="${user.lms_price}"></span></td>
+                    <td><span th:text="${user.mms_price}"></span></td>
+                    <td><span th:text="${user.rmk}"></span></td>
+                    <td><span th:text="${user.create_dttm}"></span></td>
+                    <td>
+                        <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${user.uid}')|">삭제</button>
+                        <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${user.uid}')|">수정</button>
+                    </td>
+                </tr>
+            
+            </tbody>
+        
+    </table>
+</form>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script th:inline="javascript">
+    function fnDelete(num){
+        // alert("test" + num);
+
+            if(confirm("삭제할거임?")){
+                let frm = $("#frm");
+                var urlTest = "/list/"+num;
+                alert(urlTest);
+
+                frm.attr("action", urlTest);
+                frm.submit();
+            }
+    }
+
+
+</script>
+</html>

@@ -3,6 +3,8 @@ package com.operation.management.IncreaseHistory;
 
 import java.util.List;
 
+import javax.persistence.Column;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.domain.IncreaseHRepository;
@@ -25,6 +27,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.minidev.json.JSONObject;
 import oracle.net.aso.j;
@@ -38,27 +43,73 @@ public class IncreaseHController {
 
 
 
-    @RequestMapping("/test/test")
+    @RequestMapping("/increaseH")
     String indexPage(Model model){
 
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
 
-    model.addAttribute("allUsers", allUsers);
+        model.addAttribute("allUsers", allUsers);
 
-    log.info("allUsers {}",allUsers);
-    return "index";
+        log.info("allUsers {}",allUsers);
+        return "/increaseH.html";
 }
+
     
-
-
-
-
-
-    @RequestMapping("/IncreaseListVw")
+    @RequestMapping("/")
     public String list(Model model){
-        
-        return "/list.html";
+    
+        return "/index";
     }
+
+
+    // @RequestMapping("/update/editIncreaseH")
+    // String editIncrease(Model model){
+    //     IncreaseH findByid = increaseHService.findById(uid);
+
+    //     model.addAttribute("findByUid", findByid);
+    //     return "/update/editIncreaseH";
+    // }
+
+
+    @RequestMapping("/update/editIncreaseH")
+    public String updateIncrease(Long uid) throws Exception{
+       
+
+        IncreaseH find = increaseHService.findById(uid).map(m->m).orElse(null);
+
+
+        log.info("result = {}", find.toString());
+
+        
+        return "/update/editIncreaseH";
+        
+    }
+
+     @PutMapping("/{uid}")
+    public ResponseEntity<?> update(@PathVariable("uid") final long uid, @RequestBody  CreateMemberRequest model) throws Exception{
+        System.out.println("update controller");
+        IncreaseHDto updatedInfo = increaseHService.update(model, uid);
+        
+        if(updatedInfo == null){
+            ResponseEntity.status(HttpStatus.BAD_REQUEST);
+        }else{
+            ResponseEntity.status(HttpStatus.ACCEPTED);
+        }
+
+
+    
+        return null;
+    }
+
+
+
+
+
+    // @RequestMapping("/IncreaseListVw")
+    // public String list(Model model){
+        
+    //     return "/list.html";
+    // }
 
 
     @GetMapping("/IncreaseHListDo")
@@ -111,25 +162,34 @@ public class IncreaseHController {
         return entity;
     }
 
-    @PutMapping("/{uid}")
-    public ResponseEntity<?> update(@PathVariable("uid") final long uid, @RequestBody final IncreaseHDto model){
-        System.out.println("testing");
-        
-        ResponseEntity<?> entity = null;
-
-        try{
-            entity = new ResponseEntity<IncreaseHDto>(increaseHService.update(model, uid), HttpStatus.OK);
-        }catch (Exception e){
-            entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return entity;
-    }
+   
 
     @PostMapping("/list/{uid}")
     public String delete(@PathVariable("uid") Long uid) throws Exception{
         System.out.println("Delete TEST()");
         increaseHService.delete(uid);
-        return "redirect:/test/test";
+        return "redirect:/increaseH";
+    }
+
+
+
+
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class CreateMemberRequest {
+
+        private String status;
+
+        private String limit_price;
+        
+        private float sms_price;
+        
+        private float lms_price;
+        
+        private float mms_price;
+   
     }
 
     
