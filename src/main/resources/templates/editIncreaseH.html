@@ -23,6 +23,11 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
+<style>
+    table th{
+        text-align: center !important;
+    }
+</style>
 </head>
 
 <body id="page-top">
@@ -372,61 +377,61 @@
                                         <tr>
                                             <th>uid</th>
                                                 <td>
-                                                    <input type="text" th:value="${data.uid}" readonly>
+                                                    <input class="form-control" type="text" th:value="${data.uid}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>grp_cd</th>
                                                 <td>
-                                                    <input type="text" th:value="${data.grp_cd}" readonly>
+                                                    <input class="form-control" type="text" th:value="${data.grp_cd}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>status</th>
                                                 <td>
-                                                    <input type="text" name="status" th:value="${data.status}">
+                                                    <input class="form-control" type="text" name="status" th:value="${data.status}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>start_date</th>
                                                 <td>
-                                                    <input type="text" th:value="${data.start_date}" readonly>
+                                                    <input class="form-control" type="text" th:value="${data.start_date}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>limit_price</th>
                                                 <td>
-                                                    <input type="text" name="limit_price" th:value="${data.limit_price}">
+                                                    <input class="form-control" type="text" name="limit_price" th:value="${data.limit_price}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>sms_price</th>
                                                 <td>
-                                                    <input type="text" name="sms_price" th:value="${data.sms_price}">
+                                                    <input class="form-control" type="text" name="sms_price" th:value="${data.sms_price}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>lms_price</th>
                                                 <td>
-                                                    <input type="text" name="lms_price" th:value="${data.lms_price}">
+                                                    <input class="form-control" type="text" name="lms_price" th:value="${data.lms_price}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>mms_price</th>
                                                 <td>
-                                                    <input type="text" name="mms_price" th:value="${data.mms_price}">
+                                                    <input class="form-control" type="text" name="mms_price" th:value="${data.mms_price}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>rmk</th>
                                                 <td>
-                                                    <input type="text" th:value="${data.rmk}" readonly>
+                                                    <input class="form-control" type="text" th:value="${data.rmk}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>create_dttm</th>
                                                 <td>
-                                                    <input type="text" th:value="${data.create_dttm}" readonly>
+                                                    <input class="form-control" type="text" th:value="${data.create_dttm}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
