@@ -134,7 +134,7 @@ public class IncreaseHServiceTest {
         model.setMms_price(70);
         
         //when
-        IncreaseHDto updatedInfo = increaseHService.update(model, 323);
+        IncreaseHDto updatedInfo = increaseHService.update(model, 331);
 
         //then
 

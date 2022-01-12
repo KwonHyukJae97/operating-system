@@ -3,13 +3,9 @@ package com.operation.management.IncreaseHistory;
 
 import java.util.List;
 
-import javax.persistence.Column;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.operation.management.domain.IncreaseH;
-import com.operation.management.domain.IncreaseHRepository;
 import com.operation.management.dto.IncreaseHDto;
-import com.operation.management.dto.IncreaseHListDto;
 import com.operation.management.service.IncreaseHService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,21 +14,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.minidev.json.JSONObject;
-import oracle.net.aso.j;
 
 @Controller
 @Slf4j
@@ -40,7 +31,6 @@ public class IncreaseHController {
 
     @Autowired
     private IncreaseHService increaseHService;
-
 
 
     @RequestMapping("/increaseH")
@@ -52,7 +42,7 @@ public class IncreaseHController {
 
         log.info("allUsers {}",allUsers);
         return "/increaseH.html";
-}
+    }
 
     
     @RequestMapping("/")
@@ -62,79 +52,37 @@ public class IncreaseHController {
     }
 
 
-    // @RequestMapping("/update/editIncreaseH")
-    // String editIncrease(Model model){
-    //     IncreaseH findByid = increaseHService.findById(uid);
-
-    //     model.addAttribute("findByUid", findByid);
-    //     return "/update/editIncreaseH";
-    // }
-
-
-    @RequestMapping("/update/editIncreaseH")
-    public String updateIncrease(Long uid) throws Exception{
+    @GetMapping(value = "/editIncreaseH")
+    public String updateIncrease(Long uid, Model model) throws Exception{
        
 
-        IncreaseH find = increaseHService.findById(uid).map(m->m).orElse(null);
+       IncreaseH data = increaseHService.findById(uid).map(m->m).orElse(null);
 
 
-        log.info("result = {}", find.toString());
+        log.info("result = {}", data.toString());
+        System.out.println("가져왓니가져왓니~~~" + data.toString());
 
-        
-        return "/update/editIncreaseH";
+        model.addAttribute("data", data);
+        return "/editIncreaseH";
         
     }
 
-     @PutMapping("/{uid}")
-    public ResponseEntity<?> update(@PathVariable("uid") final long uid, @RequestBody  CreateMemberRequest model) throws Exception{
-        System.out.println("update controller");
-        IncreaseHDto updatedInfo = increaseHService.update(model, uid);
-        
-        if(updatedInfo == null){
-            ResponseEntity.status(HttpStatus.BAD_REQUEST);
-        }else{
-            ResponseEntity.status(HttpStatus.ACCEPTED);
-        }
 
+    @PostMapping("/update/{uid}")
+    public String update(@PathVariable("uid") Long uid, CreateMemberRequest model) throws Exception{
+        increaseHService.update(model, uid);
+        return "redirect:/increaseH";
+    }
+
+
+    @PostMapping("/list/{uid}")
+    public String delete(@PathVariable("uid") Long uid) throws Exception{
+        System.out.println("Delete TEST()");
+        increaseHService.delete(uid);
+        return "redirect:/increaseH";
+    }
 
     
-        return null;
-    }
-
-
-
-
-
-    // @RequestMapping("/IncreaseListVw")
-    // public String list(Model model){
-        
-    //     return "/list.html";
-    // }
-
-
-    @GetMapping("/IncreaseHListDo")
-    public JSONObject list(final IncreaseHListDto model) throws Exception{
-
-        List<IncreaseH> allUsers = increaseHService.getALLUsers();
-
-        JSONObject jsonObject = new JSONObject();
-
-        jsonObject.put("IncreseHList", allUsers);
-
-        System.out.println("올유저~~!!! :" + allUsers);
-        
-        // ObjectMapper mapper = new ObjectMapper();
-
-        
-
-        // return entity;
-        // return mapper.writeValueAsString(jsonObject);
-        return jsonObject;
-    }
-
-   
-
-
     @GetMapping("/{uid}")
     public ResponseEntity<?> view(@PathVariable("uid") final long uid){
         ResponseEntity<?> entity = null;
@@ -150,6 +98,7 @@ public class IncreaseHController {
         return entity;
     }
 
+
     @PostMapping
     public ResponseEntity<?> insert(@RequestBody final IncreaseHDto model){
         ResponseEntity<?> entity = null;
@@ -161,19 +110,6 @@ public class IncreaseHController {
         }
         return entity;
     }
-
-   
-
-    @PostMapping("/list/{uid}")
-    public String delete(@PathVariable("uid") Long uid) throws Exception{
-        System.out.println("Delete TEST()");
-        increaseHService.delete(uid);
-        return "redirect:/increaseH";
-    }
-
-
-
-
 
     @Data
     @AllArgsConstructor
