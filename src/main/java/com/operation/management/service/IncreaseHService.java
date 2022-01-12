@@ -47,6 +47,8 @@ public class IncreaseHService {
         IncreaseH increaseH = increaseHRepository.save(model.toEntity());
         return new IncreaseHDto(increaseH);
     }
+
+    
     @Transactional
     public IncreaseHDto update(CreateMemberRequest model, long uid) throws Exception{
         IncreaseHDto view = this.view(uid);        

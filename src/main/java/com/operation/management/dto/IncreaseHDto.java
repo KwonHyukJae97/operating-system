@@ -22,7 +22,11 @@ public class IncreaseHDto {
     private float mms_price;
     private String rmk;
     private Date create_dttm;
-    private String fDate;
+    // private String fDate;
+
+     // @CreationTimestamp
+  //   private Timestamp create_dttm;
+  //insert시 자동으로 등록한 시간 업데이트
     
     // @Builder
     // public IncreaseHDto(Long uid, String grp_cd, String status, String start_date, String limit_price,

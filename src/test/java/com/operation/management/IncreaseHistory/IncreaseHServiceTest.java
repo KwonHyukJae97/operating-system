@@ -81,7 +81,7 @@ public class IncreaseHServiceTest {
 
             //given
             model.setGrp_cd("111111");
-            model.setStatus("사용사용");
+            model.setStatus("이재혁");
             model.setStart_date("20220106");
             model.setLimit_price("10001");
             model.setSms_price(10);
@@ -89,15 +89,18 @@ public class IncreaseHServiceTest {
             model.setMms_price(20);
             model.setRmk("issacShin");
             Date date = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            model.setCreate_dttm(date);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+            Date now = dateFormat.parse(dateFormat.format(date));
+            
+            model.setCreate_dttm(now);
 
             //when
             IncreaseHDto result = increaseHService.insert(model);
 
             //than
             assertEquals("111111"  , result.getGrp_cd());
-            assertEquals("사용사용" , result.getStatus());
+            assertEquals("이재혁" , result.getStatus());
             // assertNotNull(result.getCreate_dttm());
         
 

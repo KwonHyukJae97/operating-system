@@ -1,5 +1,6 @@
 package com.operation.management.domain;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Date;
 
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -48,6 +51,10 @@ public class IncreaseH {
   
   @Column(updatable = false)
   private Date create_dttm;
+
+  // @CreationTimestamp
+  //   private Timestamp create_dttm;
+  //insert시 자동으로 등록한 시간 업데이트
 
   @Builder
     public IncreaseH(Long uid, String grp_cd, String status, String start_date, String limit_price,

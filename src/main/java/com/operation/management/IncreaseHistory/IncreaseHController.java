@@ -1,8 +1,9 @@
 package com.operation.management.IncreaseHistory;
 
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
-
 
 import com.operation.management.domain.IncreaseH;
 import com.operation.management.dto.IncreaseHDto;
@@ -17,7 +18,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.AllArgsConstructor;
@@ -68,6 +68,45 @@ public class IncreaseHController {
     }
 
 
+    @GetMapping(value = "/insertIncreaseH")
+    public String insertIncreaseH() {
+        return "/insertIncreaseH";
+    }
+
+
+
+
+
+
+
+
+
+
+    @PostMapping("/insert")
+    public String insert(IncreaseHDto model) throws Exception{
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+
+        Date now = dateFormat.parse(dateFormat.format(date));
+        
+        model.setCreate_dttm(now);
+
+        increaseHService.insert(model);
+
+        System.out.println("시간시간시간시간 : " + model);
+        return "redirect:/increaseH";
+    }
+
+
+
+
+
+
+
+
+
+
+
     @PostMapping("/update/{uid}")
     public String update(@PathVariable("uid") Long uid, CreateMemberRequest model) throws Exception{
         increaseHService.update(model, uid);
@@ -99,17 +138,17 @@ public class IncreaseHController {
     }
 
 
-    @PostMapping
-    public ResponseEntity<?> insert(@RequestBody final IncreaseHDto model){
-        ResponseEntity<?> entity = null;
+    // @PostMapping
+    // public ResponseEntity<?> insert(@RequestBody final IncreaseHDto model){
+    //     ResponseEntity<?> entity = null;
 
-        try{
-            entity = new ResponseEntity<IncreaseHDto>(increaseHService.insert(model), HttpStatus.CREATED);
-        }catch (Exception e){
-            entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-        return entity;
-    }
+    //     try{
+    //         entity = new ResponseEntity<IncreaseHDto>(increaseHService.insert(model), HttpStatus.CREATED);
+    //     }catch (Exception e){
+    //         entity = new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    //     }
+    //     return entity;
+    // }
 
     @Data
     @AllArgsConstructor
