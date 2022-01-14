@@ -366,39 +366,45 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         
-                        <!-- <h1 class="test">증액이력</h1> -->
+                        <!-- <h1 class="test">thresHold</h1> -->
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div>
+                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertThresHold' " id="insertBtn">CREATE</button></div>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
                                         <tr>
-                                            <th>uid</th>
                                             <th>grp_cd</th>
-                                            <th>status</th>
+                                            <th>grp_nm</th>
                                             <th>start_date</th>
+                                            <th>used_yn</th>
                                             <th>limit_price</th>
                                             <th>sms_price</th>
                                             <th>lms_price</th>
                                             <th>mms_price</th>
-                                            <th>rmk</th>
-                                            <th>create_dttm</th>
+                                            <th>alarm_group</th>
+                                            <th>reset_yn</th>
+                                            <th>reset_day</th>
+                                            <th>reset_price</th>
+                                            <th>reset_dttm</th>
                                         </tr>
                                     </thead>
                                         <tbody>
-                                            <tr th:each="user : ${allUsers}" >
-                                                <td><a th:href="@{/editIncreaseH( uid=${user.uid} )}" th:value="${user.uid}" th:text="${user.uid}"></a></td>
-                                                <td><span th:text="${user.grp_cd}"></span></td>
-                                                <td><span th:text="${user.status}"></span></td>
-                                                <td><span th:text="${user.start_date}"></span></td>
-                                                <td><span th:text="${user.limit_price}"></span></td>
-                                                <td><span th:text="${user.sms_price}"></span></td>
-                                                <td><span th:text="${user.lms_price}"></span></td>
-                                                <td><span th:text="${user.mms_price}"></span></td>
-                                                <td><span th:text="${user.rmk}"></span></td>
-                                                <td><span th:text="${user.create_dttm}"></span></td>
+                                            <tr th:each="thresHold : ${allThresHold}" >
+                                                <td><a th:href="@{/editThresHold( grp_cd=${thresHold.grp_cd} )}" th:value="${thresHold.grp_cd}" th:text="${thresHold.grp_cd}"></a></td>
+                                                <td><span th:text="${thresHold.grp_nm}"></span></td>
+                                                <td><span th:text="${thresHold.start_date}"></span></td>
+                                                <td><span th:text="${thresHold.used_yn}"></span></td>
+                                                <td><span th:text="${thresHold.limit_price}"></span></td>
+                                                <td><span th:text="${thresHold.sms_price}"></span></td>
+                                                <td><span th:text="${thresHold.lms_price}"></span></td>
+                                                <td><span th:text="${thresHold.mms_price}"></span></td>
+                                                <td><span th:text="${thresHold.alarm_group}"></span></td>
+                                                <td><span th:text="${thresHold.reset_yn}"></span></td>
+                                                <td><span th:text="${thresHold.reset_day}"></span></td>
+                                                <td><span th:text="${thresHold.reset_price}"></span></td>
+                                                <td><span th:text="${thresHold.reset_dttm}"></span></td>
                                             </tr>
                                         </tbody>
                                     </table>

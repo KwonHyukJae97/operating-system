@@ -1,33 +1,23 @@
 package com.operation.management.IncreaseHistory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-import javax.transaction.Transactional;
-
-import com.operation.management.IncreaseHistory.IncreaseHController.CreateMemberRequest;
-import com.operation.management.domain.IncreaseH;
-import com.operation.management.domain.IncreaseHRepository;
-import com.operation.management.dto.IncreaseHDto;
-import com.operation.management.dto.IncreaseHListDto;
-import com.operation.management.service.IncreaseHService;
+import com.operation.management.increaseController.IncreaseHController.CreateMemberRequest;
+import com.operation.management.increaseDomain.IncreaseH;
+import com.operation.management.increaseDomain.IncreaseHRepository;
+import com.operation.management.increaseDto.IncreaseHDto;
+import com.operation.management.increaseService.IncreaseHService;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith({SpringExtension.class})
@@ -151,58 +141,7 @@ public class IncreaseHServiceTest {
 
 
 
-    @Test
-	public void B_listTest() throws Exception {
-        
-		IncreaseHListDto model = new IncreaseHListDto();
-		// model.setPage(1);
-		// model.setPageSize(10);
-		// model.setGrp_cd("111111");
-        // model.setStatus("사용사용");
-
-        // model.getGrp_cd();
-        // model.getStatus();
-        // model.getStart_date();
-        // model.getLimit_price();
-        // model.getSms_price();
-        // model.getLms_price();
-        // model.getMms_price();
-        // model.getRmk();
-        // model.getCreate_dttm();
-        // System.out.println("dataList입니다..======: " + model + "================끝=========");
-        
-        // IncreaseHListDto result = increaseHService.list(model);
-        // System.out.println("aaaaaaaaaaaaaaaa==============: " + model.getGrp_cd());
-		
-		// assertEquals(6, result.getTotalCount());
-		// assertEquals(6, result.getList().size());
-       
-		
-		
-		
-
-        // IncreaseHListDto result2 = increaseHService.list(model);
-		
-		
-		// assertEquals(0, result2.getTotalCount());
-		// assertEquals(0, result2.getList().size());
-		
-		
-		
-		
-		// IncreaseHListDto result3 = increaseHService.list(model);
-
-        // model.setGrp_cd("444444");
-        // model.setStatus("에이");
-		
-		// // assertEquals(1, result3.getTotalCount());
-		// // assertEquals(1, result3.getList().size());
-		// assertEquals("333333", result2.getList().get(0).getGrp_cd());
-		// assertEquals("사용중입니다.", result2.getList().get(0).getStatus());
-        // assertEquals("444444", result3.getList().get(0).getGrp_cd());
-		// assertEquals("에이", result3.getList().get(0).getStatus());
-		
-	}
+    
 
     @Test   
     public void findAll() throws Exception{
@@ -210,23 +149,7 @@ public class IncreaseHServiceTest {
     }
 
 
-    // @Test
-    // public void C_viewTest() throws Exception{
-    //     IncreaseHListDto model = new IncreaseHListDto();
-    //     model.setGrp_cd("그룹코드코드C");
-
-    //     IncreaseHListDto list = increaseHService.list(model);
-    //     long uid = list.getList().get(0).getUid();
-
-    //     IncreaseHDto view = increaseHService.view(uid);
-
-    //     assertEquals(uid, view.getUid());
-    //     assertEquals("그루비룸코드", view.getGrp_cd());
-    //     assertEquals("스테이터스는 status", view.getStatus());
-
-
-    // }
-
+   
 
     @Test
     public void E_deleteTest() throws Exception{
