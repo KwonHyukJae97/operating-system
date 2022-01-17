@@ -33,7 +33,7 @@ public class IncreaseHController {
     private IncreaseHService increaseHService;
 
 
-    @RequestMapping("/increaseH")
+    @RequestMapping("/")
     String indexPage(Model model){
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
         model.addAttribute("allUsers", allUsers);
@@ -42,10 +42,10 @@ public class IncreaseHController {
     }
 
     
-    @RequestMapping("/")
-    public String list(Model model){
-        return "/index";
-    }
+    // @RequestMapping("/")
+    // public String list(Model model){
+    //     return "/index";
+    // }
 
 
     @GetMapping(value = "/insertIncreaseH")
@@ -62,7 +62,7 @@ public class IncreaseHController {
         model.setCreate_dttm(now);
         increaseHService.insert(model);
         System.out.println("시간시간시간시간 : " + model);
-        return "redirect:/increaseH";
+        return "redirect:/";
     }
 
 

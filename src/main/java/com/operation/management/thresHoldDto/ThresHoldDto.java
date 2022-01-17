@@ -1,6 +1,5 @@
 package com.operation.management.thresHoldDto;
 
-import javax.persistence.Column;
 
 import com.operation.management.thresHoldDomain.ThresHold;
 
