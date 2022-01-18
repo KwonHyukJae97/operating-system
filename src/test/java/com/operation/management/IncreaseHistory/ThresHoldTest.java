@@ -2,7 +2,6 @@ package com.operation.management.IncreaseHistory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.operation.management.thresHoldDomain.ThresHoldRepository;
 import com.operation.management.thresHoldDto.ThresHoldDto;
 import com.operation.management.thresHoldService.ThresHoldService;
 
@@ -19,8 +18,6 @@ public class ThresHoldTest {
     @Autowired
     private ThresHoldService thresHoldService;
 
-    @Autowired
-    private ThresHoldRepository thresHoldRepository;
 
     @Test
     public void insertTest() throws Exception{

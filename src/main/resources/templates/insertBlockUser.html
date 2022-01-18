@@ -35,79 +35,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">운영관리시스템</div>
-            </a>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/">증액</a>
-                        <a class="collapse-item" href="/thresHold">ThresHold</a>
-                        <a class="collapse-item" href="/limitStatus">LimitStatus</a>
-                        <a class="collapse-item" href="/blockUser">BlockUser</a>
-                        <a class="collapse-item" href="/serverList">ServerList</a>
-                        <a class="collapse-item" href="/remoteUserList">ServerUserList</a>
-                        <a class="collapse-item" href="/remoteStatus">RemoteStatus</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - increaseH -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="/increaseH">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>증액</span></a>
-            </li> -->
-
-            <!-- Nav Item - increaseH -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="/increaseH">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>증액</span></a>
-            </li> -->
-
-            <!-- Nav Item - thresHold -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="/thresHold">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>ThresHold</span></a>
-            </li> -->
-
-            <!-- Nav Item - increaseH -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="/increaseH">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>증액</span></a>
-            </li> -->
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <th:block th:include="inc/nav"></th:block>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -118,7 +46,7 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Create</h1>
+                    <h1 class="h3 mb-2 text-gray-800">원격접속 차단 유저 추가</h1>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -137,17 +65,17 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Create~~
+                                       <!-- 원격접속 차단 유저 추가 -->
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>server_ip</th>
+                                            <th>서버IP</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="server_ip">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>server_user</th>
+                                            <th>사용자</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="server_user">
                                                 </td>

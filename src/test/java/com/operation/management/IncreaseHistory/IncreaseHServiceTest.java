@@ -52,6 +52,7 @@ public class IncreaseHServiceTest {
             System.out.println(users.size()+"WooStone");
             
             System.out.println("userChecke " + users);
+            System.out.println("size" + size);
 
 
      

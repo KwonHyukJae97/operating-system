@@ -35,85 +35,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">운영관리시스템</div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li> -->
-
-            
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <!-- <div class="sidebar-heading">
-                Addons
-            </div> -->
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/">증액</a>
-                        <a class="collapse-item" href="/thresHold">ThresHold</a>
-                        <a class="collapse-item" href="/limitStatus">LimitStatus</a>
-                        <a class="collapse-item" href="/blockUser">BlockUser</a>
-                        <a class="collapse-item" href="/serverList">ServerList</a>
-                        <a class="collapse-item" href="/remoteUserList">ServerUserList</a>
-                        <a class="collapse-item" href="/remoteStatus">RemoteStatus</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="/thresHold">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>ThresHold</span></a>
-            </li> -->
-
-            <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
-                <a class="nav-link" href="/increaseH">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>증액</span></a>
-            </li> -->
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <th:block th:include="inc/nav"></th:block>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -124,7 +46,7 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail</h1>
+                    <h1 class="h3 mb-2 text-gray-800">원격접속현황 상세보기</h1>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -143,101 +65,101 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Update~~1234
+                                    <!-- 원격접속현황 상세보기 -->
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>key</th>
+                                            <th>아이디(키)</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="key" th:value="${dataRS.key}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>name</th>
+                                            <th>이름</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="name" th:value="${dataRS.name}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>email</th>
+                                            <th>이메일</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="email" th:value="${dataRS.email}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>status</th>
+                                            <th>사용상태</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="status" th:value="${dataRS.status}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>server_ip</th>
+                                            <th>서버IP</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="server_ip" th:value="${dataRS.server_ip}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>server_user</th>
+                                            <th>사용자</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="server_user" th:value="${dataRS.server_user}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>reason</th>
+                                            <th>사용이유</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="reason" th:value="${dataRS.reason}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>date</th>
+                                            <th>사용일자</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="date" th:value="${dataRS.date}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>start_time</th>
+                                            <th>시작시간</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="start_time" th:value="${dataRS.start_time}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>end_time</th>
+                                            <th>종료시간</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="end_time" th:value="${dataRS.end_time}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>create_ip</th>
+                                            <th>원격신청IP주소</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="create_ip" th:value="${dataRS.create_ip}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>create_dttm</th>
+                                            <th>원격신청시간</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="create_dttm" th:value="${dataRS.create_dttm}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>update_admin</th>
+                                            <th>접속 승인자</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="update_admin" th:value="${dataRS.update_admin}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>update_dttm</th>
+                                            <th>접속 승인일시</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="update_dttm" th:value="${dataRS.update_dttm}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>phn_id</th>
+                                            <th>핸드폰 번호</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="phn_id" th:value="${dataRS.phn_id}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>alarm_type</th>
+                                            <th>알람유형</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="alarm_type" th:value="${dataRS.alarm_type}" >
                                                 </td>
