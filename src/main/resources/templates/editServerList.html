@@ -61,6 +61,10 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- Heading -->
+            <!-- <div class="sidebar-heading">
+                Addons
+            </div> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -139,79 +143,46 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Update~~
+                                       Update~~1234
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>uid</th>
+                                            <th>id</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.uid}" readonly>
+                                                    <input class="form-control" type="text" name="id" th:value="${dataS.id}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>grp_cd</th>
+                                            <th>server_ip</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.grp_cd}" readonly>
+                                                    <input class="form-control" type="text" name="server_ip" th:value="${dataS.server_ip}" >
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>server_user</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="server_user" th:value="${dataS.server_user}" >
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>status</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="status" th:value="${data.status}">
+                                                    <input class="form-control" type="text" name="status" th:value="${dataS.status}" >
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>start_date</th>
+                                            <th>update_dttm</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.start_date}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>limit_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="limit_price" th:value="${data.limit_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>sms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="sms_price" th:value="${data.sms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>lms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="lms_price" th:value="${data.lms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>mms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="mms_price" th:value="${data.mms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>rmk</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.rmk}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>create_dttm</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.create_dttm}" readonly>
+                                                    <input class="form-control" type="text" name="update_dttm" th:value="${dataS.update_dttm}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th></th>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${data.uid}')|">DELETE</button>
-                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${data.uid}')|">SAVE</button>
+                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataS.id}')|">DELETE</button>
+                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${dataS.id}')|">SAVE</button>
                                                 </td>
                                         </tr>
-                                        
-                                        
-                                    
                                     </tbody>
                                     </table>
                                 </form>
@@ -293,8 +264,7 @@
 
             if(confirm("삭제하시겠습니까?")){
                 let frm = $("#frm");
-                var urlTest = "/list/"+num;
-
+                var urlTest = "/listS/"+num;
                 frm.attr("action", urlTest);
                 frm.submit();
             }
@@ -303,9 +273,7 @@
     function fnUpdate(num){
         if(confirm("저장할거?")){
             let frm = $("#frm");
-            var url = "/update/"+num;
-
-            
+            var url = "/updateServer/"+num;
             frm.attr("action", url);
             frm.submit();
         }

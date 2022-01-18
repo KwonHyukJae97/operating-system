@@ -45,7 +45,8 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">운영관리시스템</div>
             </a>
-             <!-- Nav Item - Pages Collapse Menu -->
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
@@ -69,6 +70,34 @@
                 </div>
             </li>
 
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/increaseH">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>증액</span></a>
+            </li> -->
+
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/increaseH">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>증액</span></a>
+            </li> -->
+
+            <!-- Nav Item - thresHold -->
+            <!-- <li class="nav-item">
+                <a class="nav-link" href="/thresHold">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>ThresHold</span></a>
+            </li> -->
+
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/increaseH">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>증액</span></a>
+            </li> -->
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -87,7 +116,6 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <!--네브바 툴-->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Create</h1>
@@ -299,9 +327,15 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Create~~123
+                                       Create~~
                                     </thead>
                                     <tbody>
+                                        <tr>
+                                            <th>uid</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="uid">
+                                                </td>
+                                        </tr>
                                         <tr>
                                             <th>grp_cd</th>
                                                 <td>
@@ -321,65 +355,41 @@
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>used_yn</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="used_yn">
-                                                </td>
-                                        </tr>
-                                        <tr>
                                             <th>limit_price</th>
                                                 <td>
                                                     <input class="form-control" type="text" name="limit_price">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>sms_price</th>
+                                            <th>used</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="sms_price">
+                                                    <input class="form-control" type="text" name="used">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>lms_price</th>
+                                            <th>percent</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="lms_price">
+                                                    <input class="form-control" type="text" name="percent">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>mms_price</th>
+                                            <th>sms_cnt</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="mms_price">
+                                                    <input class="form-control" type="text" name="sms_cnt">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>alarm_group</th>
+                                            <th>lms_cnt</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="alarm_group">
+                                                    <input class="form-control" type="text" name="lms_cnt">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>reset_yn</th>
+                                            <th>mms_cnt</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="reset_yn">
+                                                    <input class="form-control" type="text" name="mms_cnt">
                                                 </td>
-                                            </tr>
-                                        <tr>
-                                            <th>reset_day</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="reset_day">
-                                                </td>
-                                            </tr>
-                                        <tr>
-                                            <th>reset_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="reset_price">
-                                                </td>
-                                            </tr>
-                                        <tr>
-                                            <th>reset_dttm</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="reset_dttm">
-                                                </td>
-                                            </tr>
+                                        </tr>
                                         <tr>
                                             <th></th>
                                             <td>
@@ -463,28 +473,15 @@
 </body>
 
 <script th:inline="javascript">
-    function fnDelete(num){
-        // alert("test" + num);
-
-            if(confirm("삭제하시겠습니까?")){
-                let frm = $("#frm");
-                var urlTest = "/listT/"+num;
-                frm.attr("action", urlTest);
-                frm.submit();
-            }
-    }
 
     function fnInsert(){
         if(confirm("추가할거?")){
             let frm = $("#frm");
-            var url = "/insertThres";
+            var url = "/insertLimit";
             frm.attr("action", url);
             frm.submit();
         }
     }
-
-    
-
 </script>
 
 </html>

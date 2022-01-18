@@ -139,74 +139,80 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Update~~
+                                       Update~~1234
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <th>uid</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.uid}" readonly>
+                                                    <input class="form-control" type="text" name="uid" th:value="${dataL.uid}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>grp_cd</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.grp_cd}" readonly>
+                                                    <input class="form-control" type="text" name="grp_cd" th:value="${dataL.grp_cd}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>status</th>
+                                            <th>grp_nm</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="status" th:value="${data.status}">
+                                                    <input class="form-control" type="text" name="grp_nm" th:value="${dataL.grp_nm}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>start_date</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.start_date}" readonly>
+                                                    <input class="form-control" type="text" name="start_date" th:value="${dataL.start_date}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>limit_price</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="limit_price" th:value="${data.limit_price}">
+                                                    <input class="form-control" type="text" name="limit_price" th:value="${dataL.limit_price}">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>sms_price</th>
+                                            <th>used</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="sms_price" th:value="${data.sms_price}">
+                                                    <input class="form-control" type="text" name="used" th:value="${dataL.used}">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>lms_price</th>
+                                            <th>percent</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="lms_price" th:value="${data.lms_price}">
+                                                    <input class="form-control" type="text" name="percent" th:value="${dataL.percent}">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>mms_price</th>
+                                            <th>sms_cnt</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="mms_price" th:value="${data.mms_price}">
+                                                    <input class="form-control" type="text" name="sms_cnt" th:value="${dataL.sms_cnt}">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>rmk</th>
+                                            <th>lms_cnt</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.rmk}" readonly>
+                                                    <input class="form-control" type="text" name="lms_cnt" th:value="${dataL.lms_cnt}">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>mms_cnt</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mms_cnt" th:value="${dataL.mms_cnt}">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>create_dttm</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.create_dttm}" readonly>
+                                                    <input class="form-control" type="text" name="create_dttm" th:value="${dataL.create_dttm}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th></th>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${data.uid}')|">DELETE</button>
-                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${data.uid}')|">SAVE</button>
+                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataL.uid}')|">DELETE</button>
+                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${dataL.uid}')|">SAVE</button>
                                                 </td>
                                         </tr>
                                         
@@ -293,8 +299,7 @@
 
             if(confirm("삭제하시겠습니까?")){
                 let frm = $("#frm");
-                var urlTest = "/list/"+num;
-
+                var urlTest = "/listL/"+num;
                 frm.attr("action", urlTest);
                 frm.submit();
             }
@@ -303,9 +308,7 @@
     function fnUpdate(num){
         if(confirm("저장할거?")){
             let frm = $("#frm");
-            var url = "/update/"+num;
-
-            
+            var url = "/updateLimitStatus/"+num;
             frm.attr("action", url);
             frm.submit();
         }

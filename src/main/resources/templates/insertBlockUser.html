@@ -23,11 +23,11 @@
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-<style>
-    table th{
-        text-align: center !important;
-    }
-</style>
+    <style>
+        table th{
+            text-align: center !important;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -45,22 +45,6 @@
                 </div>
                 <div class="sidebar-brand-text mx-3">운영관리시스템</div>
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <!-- <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li> -->
-
-            
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -86,15 +70,29 @@
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/increaseH">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>증액</span></a>
+            </li> -->
+
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
+                <a class="nav-link" href="/increaseH">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>증액</span></a>
+            </li> -->
+
+            <!-- Nav Item - thresHold -->
             <!-- <li class="nav-item">
                 <a class="nav-link" href="/thresHold">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>ThresHold</span></a>
             </li> -->
 
-            <!-- Nav Item - Tables -->
-            <!-- <li class="nav-item">
+            <!-- Nav Item - increaseH -->
+            <!-- <li class="nav-item active">
                 <a class="nav-link" href="/increaseH">
                     <i class="fas fa-fw fa-table"></i>
                     <span>증액</span></a>
@@ -120,7 +118,7 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Create</h1>
                 </nav>
                 <!-- End of Topbar -->
 
@@ -139,79 +137,28 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-                                       Update~~
+                                       Create~~
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <th>uid</th>
+                                            <th>server_ip</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.uid}" readonly>
+                                                    <input class="form-control" type="text" name="server_ip">
                                                 </td>
                                         </tr>
                                         <tr>
-                                            <th>grp_cd</th>
+                                            <th>server_user</th>
                                                 <td>
-                                                    <input class="form-control" type="text" th:value="${data.grp_cd}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>status</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="status" th:value="${data.status}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>start_date</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.start_date}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>limit_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="limit_price" th:value="${data.limit_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>sms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="sms_price" th:value="${data.sms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>lms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="lms_price" th:value="${data.lms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>mms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="mms_price" th:value="${data.mms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>rmk</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.rmk}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>create_dttm</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.create_dttm}" readonly>
+                                                    <input class="form-control" type="text" name="server_user">
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th></th>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${data.uid}')|">DELETE</button>
-                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${data.uid}')|">SAVE</button>
-                                                </td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" th:attr="onclick=|fnInsert()|">SAVE</button>
+                                            </td>
                                         </tr>
                                         
-                                        
-                                    
                                     </tbody>
                                     </table>
                                 </form>
@@ -288,31 +235,15 @@
 </body>
 
 <script th:inline="javascript">
-    function fnDelete(num){
-        // alert("test" + num);
 
-            if(confirm("삭제하시겠습니까?")){
-                let frm = $("#frm");
-                var urlTest = "/list/"+num;
-
-                frm.attr("action", urlTest);
-                frm.submit();
-            }
-    }
-
-    function fnUpdate(num){
-        if(confirm("저장할거?")){
+    function fnInsert(){
+        if(confirm("추가할거?")){
             let frm = $("#frm");
-            var url = "/update/"+num;
-
-            
+            var url = "/insertBlock";
             frm.attr("action", url);
             frm.submit();
         }
     }
-
-    
-
 </script>
 
 </html>

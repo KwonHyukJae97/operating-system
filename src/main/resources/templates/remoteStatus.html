@@ -22,12 +22,13 @@
 
     <!-- Custom styles for this page -->
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style>
+        #insertBtn{
+            margin-bottom: 5px;
+            width: 100% !important;
+        }
 
-<style>
-    table th{
-        text-align: center !important;
-    }
-</style>
+    </style>
 </head>
 
 <body id="page-top">
@@ -120,8 +121,10 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail</h1>
+                    <h1 class="h3 mb-2 text-gray-800">증액이력</h1>
                 </nav>
+
+                    
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -137,82 +140,49 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
+                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertRemoteStatus' " id="insertBtn">CREATE</button></div>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                       Update~~
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>uid</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.uid}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>grp_cd</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.grp_cd}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>status</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="status" th:value="${data.status}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>start_date</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.start_date}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>limit_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="limit_price" th:value="${data.limit_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>sms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="sms_price" th:value="${data.sms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>lms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="lms_price" th:value="${data.lms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>mms_price</th>
-                                                <td>
-                                                    <input class="form-control" type="text" name="mms_price" th:value="${data.mms_price}">
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>rmk</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.rmk}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th>create_dttm</th>
-                                                <td>
-                                                    <input class="form-control" type="text" th:value="${data.create_dttm}" readonly>
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                            <th></th>
-                                                <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${data.uid}')|">DELETE</button>
-                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${data.uid}')|">SAVE</button>
-                                                </td>
-                                        </tr>
-                                        
-                                        
                                     
-                                    </tbody>
+                                    <thead>
+                                        <tr>
+                                            <th>key</th>
+                                            <th>name</th>
+                                            <th>email</th>
+                                            <th>status</th>
+                                            <th>server_ip</th>
+                                            <th>server_user</th>
+                                            <th>reason</th>
+                                            <th>date</th>
+                                            <th>start_time</th>
+                                            <th>end_time</th>
+                                            <th>create_ip</th>
+                                            <th>create_dttm</th>
+                                            <th>update_admin</th>
+                                            <th>update_dttm</th>
+                                            <th>phn_id</th>
+                                            <th>alarm_type</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <tr th:each="dataRS : ${allRemoteStatus}" >
+                                                <td><a th:href="@{/editRemoteStatus( key=${dataRS.key} )}" th:value="${dataRS.key}" th:text="${dataRS.key}"></a></td>
+                                                <td><span th:text="${dataRS.name}"></span></td>
+                                                <td><span th:text="${dataRS.email}"></span></td>
+                                                <td><span th:text="${dataRS.status}"></span></td>
+                                                <td><span th:text="${dataRS.server_ip}"></span></td>
+                                                <td><span th:text="${dataRS.server_user}"></span></td>
+                                                <td><span th:text="${dataRS.reason}"></span></td>
+                                                <td><span th:text="${dataRS.date}"></span></td>
+                                                <td><span th:text="${dataRS.start_time}"></span></td>
+                                                <td><span th:text="${dataRS.end_time}"></span></td>
+                                                <td><span th:text="${dataRS.create_ip}"></span></td>
+                                                <td><span th:text="${dataRS.create_dttm}"></span></td>
+                                                <td><span th:text="${dataRS.update_admin}"></span></td>
+                                                <td><span th:text="${dataRS.update_dttm}"></span></td>
+                                                <td><span th:text="${dataRS.phn_id}"></span></td>
+                                                <td><span th:text="${dataRS.alarm_type}"></span></td>
+                                            </tr>
+                                        </tbody>
                                     </table>
                                 </form>
                             </div>
@@ -283,36 +253,5 @@
     <!-- Page level custom scripts -->
     <script src="js/demo/datatables-demo.js"></script>
 
-    
-
 </body>
-
-<script th:inline="javascript">
-    function fnDelete(num){
-        // alert("test" + num);
-
-            if(confirm("삭제하시겠습니까?")){
-                let frm = $("#frm");
-                var urlTest = "/list/"+num;
-
-                frm.attr("action", urlTest);
-                frm.submit();
-            }
-    }
-
-    function fnUpdate(num){
-        if(confirm("저장할거?")){
-            let frm = $("#frm");
-            var url = "/update/"+num;
-
-            
-            frm.attr("action", url);
-            frm.submit();
-        }
-    }
-
-    
-
-</script>
-
 </html>

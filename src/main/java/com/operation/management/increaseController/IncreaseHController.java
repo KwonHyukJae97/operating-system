@@ -80,7 +80,7 @@ public class IncreaseHController {
     @PostMapping("/update/{uid}")
     public String update(@PathVariable("uid") Long uid, CreateMemberRequest model) throws Exception{
         increaseHService.update(model, uid);
-        return "redirect:/increaseH";
+        return "redirect:/";
     }
 
 

@@ -43,8 +43,9 @@ public class IncreaseH {
 
 
   @Builder
-    public IncreaseH(Long uid, String grp_cd, String status, String start_date, String limit_price,
-    float sms_price, float lms_price, float mms_price, String rmk, Date create_dttm){
+    public IncreaseH(Long uid, String grp_cd, String status, String start_date,
+                    String limit_price,float sms_price, float lms_price,
+                    float mms_price, String rmk, Date create_dttm){
         this.uid = uid;
         this.grp_cd = grp_cd;
         this.status = status;
