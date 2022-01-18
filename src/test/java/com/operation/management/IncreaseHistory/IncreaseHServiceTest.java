@@ -7,11 +7,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-import com.operation.management.increaseController.IncreaseHController.CreateMemberRequest;
-import com.operation.management.increaseDomain.IncreaseH;
-import com.operation.management.increaseDomain.IncreaseHRepository;
-import com.operation.management.increaseDto.IncreaseHDto;
-import com.operation.management.increaseService.IncreaseHService;
+import com.operation.management.firstController.IncreaseHController.CreateMemberRequest;
+import com.operation.management.firstDto.IncreaseHDto;
+import com.operation.management.firstEntity.IncreaseH;
+import com.operation.management.firstRepository.IncreaseHRepository;
+import com.operation.management.firstService.IncreaseHService;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;

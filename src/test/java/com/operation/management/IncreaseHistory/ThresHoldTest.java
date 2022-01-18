@@ -2,8 +2,8 @@ package com.operation.management.IncreaseHistory;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.operation.management.thresHoldDto.ThresHoldDto;
-import com.operation.management.thresHoldService.ThresHoldService;
+import com.operation.management.firstDto.ThresHoldDto;
+import com.operation.management.firstService.ThresHoldService;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
