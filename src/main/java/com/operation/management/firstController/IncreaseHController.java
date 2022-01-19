@@ -33,7 +33,13 @@ public class IncreaseHController {
     private IncreaseHService increaseHService;
 
 
-    @RequestMapping("/")
+    @GetMapping(value = "/")
+    public String login() {
+        return "/login/login";
+    }
+
+
+    @RequestMapping("/increaseH")
     String indexPage(Model model){
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
         model.addAttribute("allUsers", allUsers);
@@ -62,7 +68,7 @@ public class IncreaseHController {
         model.setCreate_dttm(now);
         increaseHService.insert(model);
         System.out.println("시간시간시간시간 : " + model);
-        return "redirect:/";
+        return "redirect:/increaseH";
     }
 
 
@@ -80,7 +86,7 @@ public class IncreaseHController {
     @PostMapping("/update/{uid}")
     public String update(@PathVariable("uid") Long uid, CreateMemberRequest model) throws Exception{
         increaseHService.update(model, uid);
-        return "redirect:/";
+        return "redirect:/increaseH";
     }
 
 

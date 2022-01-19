@@ -4,7 +4,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/increaseH">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -40,7 +40,7 @@
         </a>
         <div id="increase" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="/">증액이력</a>
+                <a class="collapse-item" href="/increaseH">증액이력</a>
                 <a class="collapse-item" href="/thresHold">기업정보(제한금액)</a>
                 <a class="collapse-item" href="/limitStatus">미정</a>
                 
@@ -59,6 +59,45 @@
                 <a class="collapse-item" href="/serverList">원격접속계정현황</a>
                 <a class="collapse-item" href="/remoteUserList">원격접속가능인원현황</a>
                 <a class="collapse-item" href="/remoteStatus">원격접속현황</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#arreomagma"
+            aria-expanded="true" aria-controls="arreomagma">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>라우팅 및 인증코드</span>
+        </a>
+        <div id="arreomagma" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/routing">플래그값변경(SMT_FG)</a>
+                <a class="collapse-item" href="/mbrIp2">인증코드IP업데이트</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#lowdata"
+            aria-expanded="true" aria-controls="lowdata">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>로우데이터</span>
+        </a>
+        <div id="lowdata" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/smsRowData">SMS로우데이터</a>
+                <a class="collapse-item" href="/mmsRowData">MMS로우데이터</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#smsLimit"
+            aria-expanded="true" aria-controls="smsLimit">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>건수제한</span>
+        </a>
+        <div id="smsLimit" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/smsLimit">SMS건수제한</a>
+                <a class="collapse-item" href="/lmsLimit">LMS건수제한</a>
             </div>
         </div>
     </li>

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
+    <!-- <th:block th:include="inc/head"></th:block> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -35,9 +35,10 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <th:block th:include="inc/nav"></th:block>
 
+        
+ 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -47,8 +48,9 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">limitStatus</h1>
+                    <h1 aria-colspan="6" class="h3 mb-2 text-gray-800">SMS로우데이터</h1>
                 </nav>
+                
 
                     
                 <!-- End of Topbar -->
@@ -66,39 +68,24 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertLimitStatus' " id="insertBtn">CREATE</button></div>
+                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div>
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
                                         <tr>
-                                            <th>아이디</th>
-                                            <th>그룹코드</th>
-                                            <th>그룹명</th>
-                                            <th>시작일자</th>
-                                            <th>제한금액</th>
-                                            <th>사용된가격</th>
-                                            <th>백분율</th>
-                                            <th>sms사용량</th>
-                                            <th>lms사용량</th>
-                                            <th>mms사용량</th>
-                                            <th>데이터 인입일시</th>
+                                            <th>미정1</th>
+                                            <th>미정2</th>
+                                            <th>미정3</th>
+                                            <th>미정4</th>
+                                            <th>미정5</th>
+                                            <th>미정6</th>
+                                            <th>미정7</th>
+                                            <th>미정8</th>
+                                            <th>미정9</th>
+                                            <th>미정10</th>
                                         </tr>
                                     </thead>
-                                        <tbody>
-                                            <tr th:each="limit : ${allLimitStatus}" >
-                                                <td><a th:href="@{/editLimitStatus( uid=${limit.uid} )}" th:value="${limit.uid}" th:text="${limit.uid}"></a></td>
-                                                <td><span th:text="${limit.grp_cd}"></span></td>
-                                                <td><span th:text="${limit.grp_nm}"></span></td>
-                                                <td><span th:text="${limit.start_date}"></span></td>
-                                                <td><span th:text="${limit.limit_price}"></span></td>
-                                                <td><span th:text="${limit.used}"></span></td>
-                                                <td><span th:text="${limit.percent}"></span></td>
-                                                <td><span th:text="${limit.sms_cnt}"></span></td>
-                                                <td><span th:text="${limit.lms_cnt}"></span></td>
-                                                <td><span th:text="${limit.mms_cnt}"></span></td>
-                                                <td><span th:text="${limit.create_dttm}"></span></td>
-                                            </tr>
-                                        </tbody>
+                                        
                                     </table>
                                 </form>
                             </div>
