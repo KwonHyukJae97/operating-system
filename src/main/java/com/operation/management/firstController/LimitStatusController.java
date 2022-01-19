@@ -36,14 +36,14 @@ public class LimitStatusController {
         List<LimitStatus> allLimitStatus = limitStatusService.getAllLimitStatus();
         model.addAttribute("allLimitStatus", allLimitStatus);
         log.info("allLimitStatus {}", allLimitStatus);
-        return "/limitStatus.html";
+        return "/countStatus/limitStatus.html";
         
     }
 
 
     @GetMapping(value = "/insertLimitStatus")
     public String insertLimitStatus(){
-        return "/insertLimitStatus";
+        return "/countStatus/insertLimitStatus";
     }
 
 
@@ -63,7 +63,7 @@ public class LimitStatusController {
         LimitStatus dataL = limitStatusService.findById(uid).map(m->m).orElse(null);
         log.info("dataL = {}", dataL.toString());
         model.addAttribute("dataL", dataL);
-        return "/editLimitStatus";
+        return "/countStatus/editLimitStatus";
     }
 
 

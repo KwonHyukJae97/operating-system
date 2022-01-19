@@ -36,13 +36,13 @@ public class ServerListController {
         List<ServerList> allServerList = serverListService.getAllServerList();
         model.addAttribute("allServerList", allServerList);
         log.info("allBlockUser {}", allServerList);
-        return "/serverList.html";
+        return "/remoteServerList/serverList.html";
     }
 
 
     @GetMapping(value = "/insertServerList")
     public String insertServerList(){
-        return "/insertServerList";
+        return "/remoteServerList/insertServerList";
     }
 
 
@@ -62,7 +62,7 @@ public class ServerListController {
         ServerList dataS = serverListService.findById(id).map(m->m).orElse(null);
         log.info("dataS = {}", dataS.toString());
         model.addAttribute("dataS", dataS);
-        return "/editServerList";
+        return "/remoteServerList/editServerList";
     }
 
     @PostMapping("/updateServer/{id}")

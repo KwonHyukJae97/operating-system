@@ -36,13 +36,13 @@ public class RemoteStatusController {
         List<RemoteStatus> allRemoteStatus = remoteStatusService.getAllRemoteStatus();
         model.addAttribute("allRemoteStatus", allRemoteStatus);
         log.info("allRemoteStatus {}",allRemoteStatus);
-        return "/remoteStatus.html";
+        return "/remoteStatus/remoteStatus.html";
     }
 
 
     @GetMapping(value = "/insertRemoteStatus")
     public String insertRemoteStatus(){
-        return "/insertRemoteStatus";
+        return "/remoteStatus/insertRemoteStatus";
     }
 
 
@@ -64,7 +64,7 @@ public class RemoteStatusController {
         log.info("dataRS = {}", dataRS.toString());
         System.out.println("제발제발제발 : " + dataRS.getKey());
         model.addAttribute("dataRS", dataRS);
-        return "/editRemoteStatus";
+        return "/remoteStatus/editRemoteStatus";
     }
 
 

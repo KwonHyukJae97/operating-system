@@ -38,7 +38,7 @@ public class IncreaseHController {
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
         model.addAttribute("allUsers", allUsers);
         log.info("allUsers {}",allUsers);
-        return "/increaseH.html";
+        return "/countHistory/increaseH.html";
     }
 
     
@@ -50,7 +50,7 @@ public class IncreaseHController {
 
     @GetMapping(value = "/insertIncreaseH")
     public String insertIncreaseH() {
-        return "/insertIncreaseH";
+        return "/countHistory/insertIncreaseH";
     }
 
 
@@ -72,7 +72,7 @@ public class IncreaseHController {
         log.info("result = {}", data.toString());
         System.out.println("가져왓니가져왓니~~~" + data.toString());
         model.addAttribute("data", data);
-        return "/editIncreaseH";
+        return "/countHistory/editIncreaseH";
         
     }
 

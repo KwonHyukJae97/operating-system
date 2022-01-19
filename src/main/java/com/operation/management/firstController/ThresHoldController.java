@@ -34,13 +34,13 @@ public class ThresHoldController {
         List<ThresHold> allThresHold = thresHoldService.getAllThresHold();
         model.addAttribute("allThresHold", allThresHold);
         log.info("allThresHold {}", allThresHold);
-        return "/thresHold.html";
+        return "/countThresHold/thresHold.html";
     }
 
 
     @GetMapping(value = "/insertThresHold")
     public String insertThresHold(){
-        return "/insertThresHold";
+        return "/countThresHold/insertThresHold";
     }
 
     @PostMapping("/insertThres")
@@ -57,7 +57,7 @@ public class ThresHoldController {
         ThresHold dataT = thresHoldService.findById(grp_cd).map(m->m).orElse(null);
         log.info("dataT = {}", dataT.toString());
         model.addAttribute("dataT", dataT);
-        return "/editThresHold";
+        return "/countThresHold/editThresHold";
     }
 
 

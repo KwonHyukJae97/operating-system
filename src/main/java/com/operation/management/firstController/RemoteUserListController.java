@@ -34,13 +34,13 @@ public class RemoteUserListController {
         List<RemoteUserList> allUserList = userListService.getAllUserList();
         model.addAttribute("allUserList", allUserList);
         log.info("allUserList {}", allUserList);
-        return "/remoteUserList.html";
+        return "/remoteUserList/remoteUserList.html";
     }
 
 
     @GetMapping(value = "/insertUserList")
     public String insertUserList(){
-        return "/insertRemoteUserList";
+        return "/remoteUserList/insertRemoteUserList";
     }
 
 
@@ -56,7 +56,7 @@ public class RemoteUserListController {
         RemoteUserList dataU = userListService.findById(id).map(m->m).orElse(null);
         log.info("dataB = {}", dataU.toString());
         model.addAttribute("dataU", dataU);
-        return "/editRemoteUserList";
+        return "/remoteUserList/editRemoteUserList";
     }
 
 

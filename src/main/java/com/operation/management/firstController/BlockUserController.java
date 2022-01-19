@@ -36,13 +36,13 @@ public class BlockUserController {
         List<BlockUser> allBlockUser = blockUserService.getAllBlockUser();
         model.addAttribute("allBlockUser", allBlockUser);
         log.info("allBlockUser {}", allBlockUser);
-        return "/blockUser.html";
+        return "/remoteBlockUser/blockUser.html";
     }
 
 
     @GetMapping(value = "/insertBlockUser")
     public String insertBlockUser(){
-        return "/insertBlockUser";
+        return "/remoteBlockUser/insertBlockUser";
     }
     
 
@@ -62,7 +62,7 @@ public class BlockUserController {
         BlockUser dataB = blockUserService.findById(id).map(m->m).orElse(null);
         log.info("dataB = {}", dataB.toString());
         model.addAttribute("dataB", dataB);
-        return "/editBlockUser";
+        return "/remoteBlockUser/editBlockUser";
     }
 
 
