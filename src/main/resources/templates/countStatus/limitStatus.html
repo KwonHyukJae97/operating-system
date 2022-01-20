@@ -66,7 +66,7 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertLimitStatus' " id="insertBtn">CREATE</button></div>
+                                <!-- <div><button type="button" class="btn btn-primary" onclick="location.href='insertLimitStatus' " id="insertBtn">CREATE</button></div> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
@@ -86,7 +86,8 @@
                                     </thead>
                                         <tbody>
                                             <tr th:each="limit : ${allLimitStatus}" >
-                                                <td><a th:href="@{/editLimitStatus( uid=${limit.uid} )}" th:value="${limit.uid}" th:text="${limit.uid}"></a></td>
+                                                <!-- <td><a th:href="@{/editLimitStatus( uid=${limit.uid} )}" th:value="${limit.uid}" th:text="${limit.uid}"></a></td> -->
+                                                <td><span th:text="${limit.uid}"></span></td>
                                                 <td><span th:text="${limit.grp_cd}"></span></td>
                                                 <td><span th:text="${limit.grp_nm}"></span></td>
                                                 <td><span th:text="${limit.start_date}"></span></td>

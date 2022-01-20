@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  
+  jpa:
+    hibernate:
+        ddl-auto: none  # create or update
+        use-new-id-generator-mappings: false
+        naming:
+            physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
+
+primary:
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/omt
+        username: arreokwon
+        password: arreokwon
+
+secondary:
+    datasource:
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@localhost:1522/xe
+        username: oracle2
+        password: 1234

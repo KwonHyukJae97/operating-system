@@ -77,13 +77,13 @@
                                         <tr>
                                             <th>그룹명</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="grp_nm" th:value="${dataT.grp_nm}" readonly>
+                                                    <input class="form-control" type="text" name="grp_nm" th:value="${dataT.grp_nm}" >
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>시작일자</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="start_date" th:value="${dataT.start_date}" readonly>
+                                                    <input class="form-control" type="text" name="start_date" th:value="${dataT.start_date}" >
                                                 </td>
                                         </tr>
                                         <tr>
@@ -131,25 +131,25 @@
                                         <tr>
                                             <th>리셋일자</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="reset_day" th:value="${dataT.reset_day}" readonly>
+                                                    <input class="form-control" type="text" name="reset_day" th:value="${dataT.reset_day}" >
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>리셋금액</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="reset_price" th:value="${dataT.reset_price}" readonly>
+                                                    <input class="form-control" type="text" name="reset_price" th:value="${dataT.reset_price}" >
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th>리셋한날짜이력</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="reset_dttm" th:value="${dataT.reset_dttm}" readonly>
+                                                    <input class="form-control" type="text" name="reset_dttm" th:value="${dataT.reset_dttm}" >
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th></th>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataT.grp_cd}')|">DELETE</button>
+                                                    <!-- <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataT.grp_cd}')|">DELETE</button> -->
                                                     <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${dataT.grp_cd}')|">SAVE</button>
                                                 </td>
                                         </tr>
@@ -232,16 +232,16 @@
 </body>
 
 <script th:inline="javascript">
-    function fnDelete(num){
-        // alert("test" + num);
+    // function fnDelete(num){
+    //     // alert("test" + num);
 
-            if(confirm("삭제하시겠습니까?")){
-                let frm = $("#frm");
-                var urlTest = "/listT/"+num;
-                frm.attr("action", urlTest);
-                frm.submit();
-            }
-    }
+    //         if(confirm("삭제하시겠습니까?")){
+    //             let frm = $("#frm");
+    //             var urlTest = "/listT/"+num;
+    //             frm.attr("action", urlTest);
+    //             frm.submit();
+    //         }
+    // }
 
     function fnUpdate(num){
         if(confirm("저장할거?")){

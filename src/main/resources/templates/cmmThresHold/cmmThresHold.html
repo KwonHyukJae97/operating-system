@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>운영관리시스템</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <style>
+        #insertBtn{
+            margin-bottom: 5px;
+            width: 100% !important;
+        }
+
+    </style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <th:block th:include="inc/nav"></th:block>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">원격접속차단유저</h1>
+                </nav>
+
+                    
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        
+                        <!-- <h1 class="test">증액이력</h1> -->
+                        <div class="card-body">
+                            <form id="frm"  method="post">
+                            <div class="table-responsive">
+                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertCmmThres' " id="insertBtn">CREATE</button></div>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th>아이디</th>
+                                            <th>메세지타입</th>
+                                            <th>그룹코드</th>
+                                            <th>제한건수(시)</th>
+                                            <th>제한건수(일)</th>
+                                            <th>제한건수(월)</th>
+                                            <th>삭제플래그</th>
+                                            <th>수정날짜</th>
+                                            <th>ADT고유아222이디</th>
+                                            <th>누적제한</th>
+                                            <th>전체제한건수</th>
+                                            <th>누적건수모드</th>
+                                        </tr>
+                                    </thead>
+                                        <tbody>
+                                            <tr th:each="cmm : ${allCmmThresHold}" >
+                                                <td><a th:href="@{/editCmmThresHold( mbrId=${cmm.mbrId} )}" th:value="${cmm.mbrId}" th:text="${cmm.mbrId}"></a></td>
+                                                <td><a th:text="${cmm.msgType}"></a></td>
+                                                <td><a th:text="${cmm.grpCd}"></a></td>
+                                                <td><a th:text="${cmm.tCnt}"></a></td>
+                                                <td><a th:text="${cmm.dCnt}"></a></td>
+                                                <td><a th:text="${cmm.mCnt}"></a></td>
+                                                <td><a th:text="${cmm.delYn}"></a></td>
+                                                <td><a th:text="${cmm.upt}"></a></td>
+                                                <td><a th:text="${cmm.adtId}"></a></td>
+                                                <td><a th:text="${cmm.aCnt}"></a></td>
+                                                <td><a th:text="${cmm.aReset}"></a></td>
+                                                <td><a th:text="${cmm.limitMode}"></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; STANDARDNETWORKS</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+</body>
+</html>

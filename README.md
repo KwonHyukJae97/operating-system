@@ -3,9 +3,9 @@
 
 ###Table DDL
 
-|menu|IncreaseH|||
+|menu|limit_count_history|limit_count_thresHold|limit_count_status|
 |------|---|---------------------|---------------------------------------|
-|Database|PostgreSQL||
+|Database|PostgreSQL|PostgreSQL|PostgreSQL|
 |dataBaseUrl|||
 |main Query|||
 

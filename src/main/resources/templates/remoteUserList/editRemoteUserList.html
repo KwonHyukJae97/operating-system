@@ -101,25 +101,25 @@
                                         <tr>
                                             <th>사용자 유형</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="type" th:value="${dataU.type}" >
+                                                    <input class="form-control" type="text" name="type" th:value="${dataU.type}" readonly>
                                                 </td>
                                             </tr>
                                         <tr>
                                             <th>사용자</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="server_user" th:value="${dataU.server_user}" >
+                                                    <input class="form-control" type="text" name="server_user" th:value="${dataU.server_user}" readonly>
                                                 </td>
                                             </tr>
                                         <tr>
                                             <th>서버IP</th>
                                                 <td>
-                                                    <input class="form-control" type="text" name="server_ip" th:value="${dataU.server_ip}" >
+                                                    <input class="form-control" type="text" name="server_ip" th:value="${dataU.server_ip}" readonly>
                                                 </td>
                                         </tr>
                                         <tr>
                                             <th></th>
                                                 <td>
-                                                    <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataU.id}')|">DELETE</button>
+                                                    <!-- <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${dataU.id}')|">DELETE</button> -->
                                                     <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${dataU.id}')|">SAVE</button>
                                                 </td>
                                         </tr>
@@ -199,16 +199,16 @@
 </body>
 
 <script th:inline="javascript">
-    function fnDelete(num){
-        // alert("test" + num);
+    // function fnDelete(num){
+    //     // alert("test" + num);
 
-            if(confirm("삭제하시겠습니까?")){
-                let frm = $("#frm");
-                var urlTest = "/listU/"+num;
-                frm.attr("action", urlTest);
-                frm.submit();
-            }
-    }
+    //         if(confirm("삭제하시겠습니까?")){
+    //             let frm = $("#frm");
+    //             var urlTest = "/listU/"+num;
+    //             frm.attr("action", urlTest);
+    //             frm.submit();
+    //         }
+    // }
 
     function fnUpdate(num){
         if(confirm("저장할거?")){

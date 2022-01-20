@@ -66,7 +66,7 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertServerList' " id="insertBtn">CREATE</button></div>
+                                <!-- <div><button type="button" class="btn btn-primary" onclick="location.href='insertServerList' " id="insertBtn">CREATE</button></div> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
@@ -80,7 +80,8 @@
                                     </thead>
                                         <tbody>
                                             <tr th:each="server : ${allServerList}" >
-                                                <td><a th:href="@{/editServerList( id=${server.id} )}" th:value="${server.id}" th:text="${server.id}"></a></td>
+                                                <!-- <td><a th:href="@{/editServerList( id=${server.id} )}" th:value="${server.id}" th:text="${server.id}"></a></td> -->
+                                                <td><span th:text="${server.id}"></span></td>
                                                 <td><span th:text="${server.server_ip}"></span></td>
                                                 <td><span th:text="${server.server_user}"></span></td>
                                                 <td><span th:text="${server.status}"></span></td>

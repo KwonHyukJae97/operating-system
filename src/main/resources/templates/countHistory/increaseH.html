@@ -46,10 +46,13 @@
             <div id="content">
 
                 <!-- Topbar -->
+                <div>
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
                     <h1 aria-colspan="6" class="h3 mb-2 text-gray-800">증액이력</h1>
                 </nav>
+                
+            </div>
                 
 
                     
@@ -68,7 +71,7 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div>
+                                <!-- <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
@@ -87,7 +90,8 @@
                                     </thead>
                                         <tbody>
                                             <tr th:each="user : ${allUsers}" >
-                                                <td><a th:href="@{/editIncreaseH( uid=${user.uid} )}" th:value="${user.uid}" th:text="${user.uid}"></a></td>
+                                                <!-- <td><a th:href="@{/editIncreaseH( uid=${user.uid} )}" th:value="${user.uid}" th:text="${user.uid}"></a></td> -->
+                                                <td><span th:text="${user.uid}"></span></td>
                                                 <td><span th:text="${user.grp_cd}"></span></td>
                                                 <td><span th:text="${user.status}"></span></td>
                                                 <td><span th:text="${user.start_date}"></span></td>

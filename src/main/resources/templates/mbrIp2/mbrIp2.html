@@ -68,9 +68,11 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div>
+                                <!-- <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    
+                                    <!-- SMT_FG 값을 updatd 할 때, set UPT_DTTM=to_char(sysdate,'yyyymmddhh24miss'),UPDATE_DATE=to_char(sysdate,'yyyymmddhh24miss'); 이 쿼리도 함께 동작하도록 해야 할 듯 합니다.
+UPT_DTTM과 UPDATE_DATE 컬럼의 값을 현재시각으로 업데이트 해주는 쿼리로, 이 기능이 생략되면 간혹 실 운영간에 적용되지 않을 수 있습니다. (DELETE기능 삭제)
+ -->
                                     <thead>
                                         <tr>
                                             <th>미정1</th>
