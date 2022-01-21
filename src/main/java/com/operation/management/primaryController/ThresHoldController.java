@@ -63,7 +63,9 @@ public class ThresHoldController {
 
     @PostMapping("/updateThresHold/{grp_cd}")
     public String updateThresHold(@PathVariable("grp_cd") String grp_cd, CreateThresHoldRequest model) throws Exception{
+        System.out.println("thresHold 가져옴? : " + model);
         thresHoldService.updateThresHold(model, grp_cd);
+        System.out.println("컨트롤러~!!: " + model.getAlarm_group());
         return "redirect:/thresHold";
     }
 

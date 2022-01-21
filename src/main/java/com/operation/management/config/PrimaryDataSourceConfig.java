@@ -18,6 +18,12 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+/**
+ * 1번째 DATABASE Configuration 설정파일
+ * PostgreSQL DB
+ * 기준이 되는 @Primary Default DataBase
+ * 증액, 원격피시 관련 DB(mnt)
+ */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
@@ -44,12 +50,12 @@ public class PrimaryDataSourceConfig {
     @Primary
     @Bean
     public LocalContainerEntityManagerFactoryBean primaryEntityManagerFactory(EntityManagerFactoryBuilder builder,
-                                                                           @Qualifier("primaryDataSource") DataSource dataSource) {
+        @Qualifier("primaryDataSource") DataSource dataSource) {
         return builder
-                        .dataSource(dataSource)
-                        .packages("com.operation.management.primary.model")
-                        .persistenceUnit("primaryEntityManager")
-                        .build();
+            .dataSource(dataSource)
+            .packages("com.operation.management.primary.model")
+            .persistenceUnit("primaryEntityManager")
+            .build();
     }
 
     @Primary

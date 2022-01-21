@@ -25,3 +25,17 @@ secondary:
         url: jdbc:oracle:thin:@localhost:1522/xe
         username: oracle2
         password: 1234
+
+tertiary:
+    datasource:
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@localhost:1521/xe
+        username: oracle1
+        password: 1234
+
+quaternary:
+    datasource:
+        driver-class-name: oracle.jdbc.OracleDriver
+        url: jdbc:oracle:thin:@localhost:1523/xe
+        username: oracle3
+        password: 1234

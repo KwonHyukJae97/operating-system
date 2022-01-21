@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>운영관리시스템</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+<style>
+    table th{
+        text-align: center !important;
+    }
+</style>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <th:block th:include="inc/nav"></th:block>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">라우팅 및 인증코드 상세보기</h1>
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    
+                    
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        
+                        <!-- <h1 class="test">증액이력</h1> -->
+                        <div class="card-body">
+                            <form id="frm"  method="post">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                       <!-- 증액이력 상세정보 -->
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>1</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mbrId" th:value="${dataCmm.mbrId}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>2</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="authSeq" th:value="${dataCmm.authSeq}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>3</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mbrIp" th:value="${dataCmm.mbrIp}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>4</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mbrPort" th:value="${dataCmm.mbrPort}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>5</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="spdpsec" th:value="${dataCmm.spdpsec}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>6</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="maxLimitRate" th:value="${dataCmm.maxLimitRate}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>7</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="rmk" th:value="${dataCmm.rmk}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>8</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="delYn" th:value="${dataCmm.delYn}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>9</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="regUsr" th:value="${dataCmm.regUsr}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>10</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="regDttm" th:value="${dataCmm.regDttm}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>11</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="uptUsr" th:value="${dataCmm.uptUsr}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>uptDttm</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="uptDttm" th:value="${dataCmm.uptDttm}" >
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>13</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mbrLevel" th:value="${dataCmm.mbrLevel}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>14</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="spamFg" th:value="${dataCmm.spamFg}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>mbrIp2</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="mbrIp2" th:value="${dataCmm.mbrIp2}" >
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>16</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="client_version" th:value="${dataCmm.client_version}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>17</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="opChgFg" th:value="${dataCmm.opChgFg}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>smtFg</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="smtFg" th:value="${dataCmm.smtFg}" >
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>19</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="alarmType" th:value="${dataCmm.alarmType}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>20</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="privateLineFg" th:value="${dataCmm.privateLineFg}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>21</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="callBlockFg" th:value="${dataCmm.callBlockFg}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>22</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="block60Fg" th:value="${dataCmm.block60Fg}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>23</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="updateUser" th:value="${dataCmm.updateUser}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>updateDate</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="updateDate" th:value="${dataCmm.updateDate}" >
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>25</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="authSecretData" th:value="${dataCmm.authSecretData}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th>26</th>
+                                                <td>
+                                                    <input class="form-control" type="text" name="authCredentialData" th:value="${dataCmm.authCredentialData}" readonly>
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                            <th></th>
+                                                <td>
+                                                    <!-- <button type="button" class="btn btn-danger" th:attr="onclick=|fnDelete('${data.uid}')|">DELETE</button> -->
+                                                    <button type="button" class="btn btn-primary" th:attr="onclick=|fnUpdate('${dataCmm.mbrId}')|">SAVE</button>
+                                                </td>
+                                        </tr>
+                                        
+                                        
+                                    
+                                    </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; STANDARDNETWORKS</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
+
+    
+
+</body>
+
+<script th:inline="javascript">
+    
+
+    function fnUpdate(num){
+        if(confirm("저장할거?")){
+            let frm = $("#frm");
+            var url = "/updateCmmCdauth/"+num;
+
+            
+            frm.attr("action", url);
+            frm.submit();
+        }
+    }
+
+    
+
+</script>
+
+</html>

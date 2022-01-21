@@ -16,45 +16,44 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
 /**
- * 2번째 DATABASE Configuration 설정파일
+ * 3번째 DATABASE Configuration 설정파일
  * Oracle DB
- * 건수제한 관련 DB(INFODB)
+ * 라우팅, 인증코드IP 관련 DB(XDB new)
  */
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        entityManagerFactoryRef = "secondaryEntityManagerFactory",
-        transactionManagerRef = "apiTransactionManager",
-        basePackages = { "com.operation.management.secondary.repository" }
+        entityManagerFactoryRef = "tertiaryEntityManagerFactory",
+        transactionManagerRef = "tertiaryTransactionManager",
+        basePackages = { "com.operation.management.tertiary.repository" }
 )
-public class SecondaryDataSourceConfig {
+public class TertiaryDataSourceConfig {
     
     @Bean
-    @ConfigurationProperties("secondary.datasource")
-    public DataSourceProperties secondaryDataSourceProperties() {
+    @ConfigurationProperties("tertiary.datasource")
+    public DataSourceProperties tertiaryDataSourceProperties(){
         return new DataSourceProperties();
     }
 
     @Bean
     @ConfigurationProperties("spring.datasource.configuration")
-    public DataSource secondaryDataSource(@Qualifier("secondaryDataSourceProperties") DataSourceProperties dataSourceProperties) {
+    public DataSource tertiaryDataSource(@Qualifier("tertiaryDataSourceProperties") DataSourceProperties dataSourceProperties){
         return dataSourceProperties.initializeDataSourceBuilder().type(HikariDataSource.class).build();
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean secondaryEntityManagerFactory(EntityManagerFactoryBuilder builder,
-        @Qualifier("secondaryDataSource") DataSource dataSource) {
-        return builder
-            .dataSource(dataSource)
-            .packages("com.operation.management.secondary.model")
-            .persistenceUnit("secondaryEntityManager")
-            .build();
-    }
+    public LocalContainerEntityManagerFactoryBean tertiaryEntityManagerFactory(EntityManagerFactoryBuilder builder,
+        @Qualifier("tertiaryDataSource") DataSource dataSource){
+            return builder
+                .dataSource(dataSource)
+                .packages("com.operation.management.tertiary.model")
+                .persistenceUnit("tertiaryEntityManager")
+                .build();
+        }
 
     @Bean
-    public PlatformTransactionManager apiTransactionManager(@Qualifier("secondaryEntityManagerFactory") EntityManagerFactory entityManagerFactory) {
+    public PlatformTransactionManager tertiaryTransactionManager(@Qualifier("tertiaryEntityManagerFactory") EntityManagerFactory entityManagerFactory){
         return new JpaTransactionManager(entityManagerFactory);
     }
 }

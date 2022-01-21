@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-
+    <!-- <th:block th:include="inc/head"></th:block> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -37,6 +37,8 @@
     <div id="wrapper">
         <th:block th:include="inc/nav"></th:block>
 
+        
+ 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -44,10 +46,14 @@
             <div id="content">
 
                 <!-- Topbar -->
+                <div>
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">건수제한</h1>
+                    <h1 aria-colspan="6" class="h3 mb-2 text-gray-800">라우팅 및 인증코드</h1>
                 </nav>
+                
+            </div>
+                
 
                     
                 <!-- End of Topbar -->
@@ -65,39 +71,67 @@
                         <div class="card-body">
                             <form id="frm"  method="post">
                             <div class="table-responsive">
-                                <div><button type="button" class="btn btn-primary" onclick="location.href='insertCmmThres' " id="insertBtn">CREATE</button></div>
+                                <!-- <div><button type="button" class="btn btn-primary" onclick="location.href='insertIncreaseH' " id="insertBtn">CREATE</button></div> -->
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     
                                     <thead>
                                         <tr>
                                             <th>아이디</th>
-                                            <th>메세지타입</th>
-                                            <th>그룹코드</th>
-                                            <th>제한건수(시)</th>
-                                            <th>제한건수(일)</th>
-                                            <th>제한건수(월)</th>
-                                            <th>삭제플래그</th>
-                                            <th>수정날짜</th>
-                                            <th>ADT고유아222이디</th>
-                                            <th>누적제한</th>
-                                            <th>전체제한건수</th>
-                                            <th>누적건수모드</th>
+                                            <th>어스SEQ</th>
+                                            <th>멤버IP</th>
+                                            <th>포트번호</th>
+                                            <th>SPDPSEC</th>
+                                            <th>최대제한</th>
+                                            <th>알엠k</th>
+                                            <th>삭제여부</th>
+                                            <th>reg유저</th>
+                                            <th>reg날짜</th>
+                                            <th>upt유저</th>
+                                            <th>upt날짜</th>
+                                            <th>멤버레벨</th>
+                                            <th>스팸FG</th>
+                                            <th>mbrIp2</th>
+                                            <th>고객버전</th>
+                                            <th>OP_CHG_FG</th>
+                                            <th>SMT_FG</th>
+                                            <th>알람</th>
+                                            <th>private</th>
+                                            <th>콜백FG</th>
+                                            <th>block60</th>
+                                            <th>update유져</th>
+                                            <th>update날짜</th>
+                                            <th>어스secret</th>
+                                            <th>어스credenti</th>
                                         </tr>
                                     </thead>
                                         <tbody>
-                                            <tr th:each="cmm : ${allCmmThresHold}" >
-                                                <td><a th:href="@{/editCmmThresHold( mbrId=${cmm.mbrId} )}" th:value="${cmm.mbrId}" th:text="${cmm.mbrId}"></a></td>
-                                                <td><a th:text="${cmm.msgType}"></a></td>
-                                                <td><a th:text="${cmm.grpCd}"></a></td>
-                                                <td><a th:text="${cmm.tCnt}"></a></td>
-                                                <td><a th:text="${cmm.dCnt}"></a></td>
-                                                <td><a th:text="${cmm.mCnt}"></a></td>
-                                                <td><a th:text="${cmm.delYn}"></a></td>
-                                                <td><a th:text="${cmm.upt}"></a></td>
-                                                <td><a th:text="${cmm.adtId}"></a></td>
-                                                <td><a th:text="${cmm.aCnt}"></a></td>
-                                                <td><a th:text="${cmm.aReset}"></a></td>
-                                                <td><a th:text="${cmm.limitMode}"></a></td>
+                                            <tr th:each="cmm : ${allCmmCdauth}" >
+                                                <td><a th:href="@{/editCmmCdauth( mbrId=${cmm.mbrId} )}" th:value="${cmm.mbrId}" th:text="${cmm.mbrId}"></a></td>
+                                                <td><span th:text="${cmm.authSeq}"></span></td>
+                                                <td><span th:text="${cmm.mbrIp}"></span></td>
+                                                <td><span th:text="${cmm.mbrPort}"></span></td>
+                                                <td><span th:text="${cmm.spdpsec}"></span></td>
+                                                <td><span th:text="${cmm.maxLimitRate}"></span></td>
+                                                <td><span th:text="${cmm.rmk}"></span></td>
+                                                <td><span th:text="${cmm.delYn}"></span></td>
+                                                <td><span th:text="${cmm.regUsr}"></span></td>
+                                                <td><span th:text="${cmm.regDttm}"></span></td>
+                                                <td><span th:text="${cmm.uptUsr}"></span></td>
+                                                <td><span th:text="${cmm.uptDttm}"></span></td>
+                                                <td><span th:text="${cmm.mbrLevel}"></span></td>
+                                                <td><span th:text="${cmm.spamFg}"></span></td>
+                                                <td><span th:text="${cmm.mbrIp2}"></span></td>
+                                                <td><span th:text="${cmm.client_version}"></span></td>
+                                                <td><span th:text="${cmm.opChgFg}"></span></td>
+                                                <td><span th:text="${cmm.smtFg}"></span></td>
+                                                <td><span th:text="${cmm.alarmType}"></span></td>
+                                                <td><span th:text="${cmm.privateLineFg}"></span></td>
+                                                <td><span th:text="${cmm.callBlockFg}"></span></td>
+                                                <td><span th:text="${cmm.block60Fg}"></span></td>
+                                                <td><span th:text="${cmm.updateUser}"></span></td>
+                                                <td><span th:text="${cmm.updateDate}"></span></td>
+                                                <td><span th:text="${cmm.authSecretData}"></span></td>
+                                                <td><span th:text="${cmm.authCredentialData}"></span></td>
                                             </tr>
                                         </tbody>
                                     </table>

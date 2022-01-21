@@ -39,6 +39,12 @@ public class IncreaseHController {
     }
 
 
+    @GetMapping(value = "/ifreamTest")
+    public String ifreamTest() {
+        return "/countHistory/ifreamTest";
+    }
+
+
     @RequestMapping("/increaseH")
     String indexPage(Model model){
         List<IncreaseH> allUsers = increaseHService.getALLUsers();
