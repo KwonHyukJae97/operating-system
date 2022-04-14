@@ -1,2 +1,1 @@
-"# operation.management" 
 # operating-system
