@@ -1,5 +1,5 @@
 
-<h2>Db Info </h2>
+<h2>DB Info </h2>
 
 
 
